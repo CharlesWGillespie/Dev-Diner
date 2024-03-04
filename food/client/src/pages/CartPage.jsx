@@ -1,7 +1,9 @@
+import NavBar from "../components/Nav"
 export  default function CartPage() {
   return (
-    <div>
-      <h1>Cart</h1>
-    </div>
+    <>
+    <NavBar/>
+    <div><h1> Cart Page</h1></div>
+    </>
   )
 }

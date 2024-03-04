@@ -1,7 +1,11 @@
+import NavBar from "../components/Nav"
+
 export default function ContactPage() {
-    return (
+    return (<>
+    <NavBar/>
         <div>
             <h1>Contact</h1>
         </div>
+        </>
     )
 }
