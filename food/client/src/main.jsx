@@ -6,6 +6,9 @@ import App from './App.jsx';
 import HomePage from './pages/HomePage.jsx';
 import LoginPage from './pages/LoginPage.jsx';
 import SignUp from './pages/SignUpPage.jsx';
+import MenuPage from './pages/MenuPage.jsx';
+import ContactPage from './pages/ContactPage.jsx';
+import CartPage from './pages/CartPage.jsx';
 
 const router = createBrowserRouter([
   {
@@ -23,13 +26,13 @@ const router = createBrowserRouter([
         element: <SignUp />
       },{
         path: '/menu',
-        element: <SignUp />
+        element: <MenuPage />
       },{
         path: '/contact',
-        element: <SignUp />
+        element: <ContactPage />
       },{
         path: '/cart',
-        element: <SignUp />
+        element: <CartPage />
       }
     ]
   }
