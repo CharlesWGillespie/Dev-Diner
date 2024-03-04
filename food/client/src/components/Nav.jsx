@@ -1,18 +1,31 @@
 import React from 'react';
-import { AppBar, Toolbar, Typography, Stack, Button } from '@mui/material';
+// MUI Components
+import { 
+    AppBar, 
+    Toolbar, 
+    Typography, 
+    Stack, 
+    Link
+} from '@mui/material';
 
 export default function NavBar() {
     return (
         <AppBar>
-            <Toolbar>
-                <Typography variant='h6' component='div' sx={{flexGrow: 1}}>
+            <Toolbar sx={{
+                backgroundColor: 'grey',
+            }}>
+                <Typography variant='h5' component='div' sx={{
+                    flexGrow: 1,
+                    textAlign: 'start',
+                    
+                    }}>
                     FOOD
                 </Typography>
                 <Stack direction='row' spacing={2}>
-                    <Button color='inherit'>Home</Button>
-                    <Button color='inherit'>Menu</Button>
-                    <Button color='inherit'>Contact</Button>
-                    <Button color='inherit'>Cart</Button>
+                    <Link to="/home" color='inherit'>Home</Link>
+                    <Link to="/menu" color='inherit'>Menu</Link>
+                    <Link to="/contact" color='inherit'>Contact</Link>
+                    <Link to="/cart" color='inherit'>Cart</Link>
                     </Stack>
             </Toolbar>
         </AppBar>
