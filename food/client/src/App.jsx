@@ -4,14 +4,19 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import SignUp from './pages/SignUpPage'
 import SignInSide from './pages/SignInPage'
+import HomePage from './pages/HomePage'
+import { Container } from '@mui/material'
+import NavBar from './components/Nav'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <>
-      <SignInSide/>
-    </>
+  <>
+    <NavBar />
+  </>
+      
+    
   )
 }
 
