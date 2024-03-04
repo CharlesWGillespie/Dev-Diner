@@ -8,7 +8,7 @@ const OrderSchema = new Schema({
     order_items: [
         {
             type: Schema.Types.ObjectId,
-            ref: 'Order'
+            ref: 'menuItem'
         }
     ],
     order_total: {
