@@ -1,7 +1,7 @@
 const { Schema, model } = require('mongoose')
 
 const menuItemSchema = new Schema({
-    name: {
+    food_name: {
         type: String,
         required: true,
         trim: true

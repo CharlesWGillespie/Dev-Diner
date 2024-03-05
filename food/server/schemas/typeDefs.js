@@ -12,9 +12,14 @@ type User{
     role: [String]
     #["admin"]
 }
+type Category{
+    _id: ID
+    category_name: String
+}
 type menuItem{
-    name: String
-    category: String
+    _id: ID
+    food_name: String
+    category: Category
     description: String
     price: Float
     food_picture: String
@@ -28,6 +33,7 @@ type Order{
 
 type Query{
     users: [User]
+    categories: [Category]
     menuItems: [menuItem]
     orders: [Order]
 }
@@ -35,6 +41,7 @@ type Query{
 type Mutation{
     addUser(firstName: String!, lastName: String!, email: String!, password: String!, phoneNumber: String):User
     login(email: String!, password: String!):Auth
+    addCategory(name: )
     addMenuItem(name: String!, category: String!): menuItem
 }
 `
