@@ -1,0 +1,327 @@
+[
+    {
+      "food_name": "Margherita Pizza",
+      "category": "Pizza",
+      "description": "Classic tomato, fresh mozzarella, basil, and extra virgin olive oil.",
+      "price": 9.99,
+      "food_picture": ""
+    },
+    {
+      "food_name": "Pepperoni Pizza",
+      "category": "Pizza",
+      "description": "Fresh tomato sauce, mozzarella, and pepperoni.",
+      "price": 10.99,
+      "food_picture": ""
+    },
+    {
+      "food_name": "Vegetarian Pizza",
+      "category": "Pizza",
+      "description": "Fresh tomato sauce, mozzarella, and mixed vegetables.",
+      "price": 11.99,
+      "food_picture": ""
+    },
+    {
+      "food_name": "Mushroom Pizza",
+      "category": "Pizza",
+      "description": "Fresh tomato sauce, mozzarella, and mushrooms.",
+      "price": 11.99,
+      "food_picture": ""
+    },
+    {
+      "food_name": "Cheese Pizza",
+      "category": "Pizza",
+      "description": "Fresh tomato sauce and mozzarella.",
+      "price": 8.99,
+      "food_picture": ""
+    },
+    {
+      "food_name": "Chicken Alfredo",
+      "category": "Entrees",
+      "description": "Fettuccine pasta served with creamy Alfredo sauce and grilled chicken.",
+      "price": 14.99,
+      "food_picture": ""
+    },
+    {
+      "food_name": "Spaghetti Bolognese",
+      "category": "Entrees",
+      "description": "Spaghetti pasta served with rich meat sauce.",
+      "price": 12.99,
+      "food_picture": ""
+    },
+    {
+      "food_name": "Caesar Salad",
+      "category": "Salad",
+      "description": "Romaine lettuce, croutons, parmesan cheese, and Caesar dressing.",
+      "price": 7.99,
+      "food_picture": ""
+    },
+    {
+        "food_name":"Garden Salad",
+        "category":"Salad",
+        "description":"Mixed greens, cherry tomatoes, cucumber, and balsamic vinaigrette.",
+        "price": 6.99,
+        "food_picture": ""
+    },
+    {
+        "food_name": "House Salad",
+        "category": "Salad",
+        "description": "Mixed greens, cherry tomatoes, cucumber, and house dressing.",
+        "price": 6.99,
+        "food_picture": ""
+      },
+    {
+        "food_name": "Goa Choi Bao",
+        "category": "Dim Sum",
+        "description": "Steamed vegetable dumplings.",
+        "price": 5.99,
+        "food_picture": ""
+      },
+      {
+        "food_name":"Shrimp Dumplings",
+        "category":"Dim Sum",
+        "description":"Steamed shrimp dumplings.",
+        "price": 6.99,
+        "food_picture": ""
+    },
+    {
+        "food_name":"Pork Dumplings",
+        "category":"Dim Sum",
+        "description":"Steamed pork dumplings.",
+        "price": 6.99,
+        "food_picture": ""
+    },
+    {
+        "food_name":"Chicken Dumplings",
+        "category":"Dim Sum",
+        "description":"Steamed chicken dumplings.",
+        "price": 6.99,
+        "food_picture": ""
+    },
+    {
+        "food_name":"Cheese Burger",
+        "category":"Entrees",
+        "description":"Option of beef or chicken patty, lettuce, tomato, and cheese.",
+        "price": 8.99,
+        "food_picture": ""
+    },
+    {
+        "food_name":"Veggie Burger",
+        "category":"Entrees",
+        "description":"Veggie patty, lettuce, tomato, and cheese.",
+        "price": 8.99,
+        "food_picture": ""
+    },
+    {
+        "food_name":"Turkey Burger",
+        "category":"Entrees",
+        "description":"Turkey patty, lettuce, tomato, and cheese.",
+        "price": 8.99,
+        "food_picture": ""
+    },
+    {
+        "food_name":"Salmon Burger",
+        "category":"Entrees",
+        "description":"Salmon patty, lettuce, tomato, and cheese.",
+        "price": 8.99,
+        "food_picture": ""
+    },
+    {
+        "food_name":"Tofu Burger",
+        "category":"Entrees",
+        "description":"Tofu patty, lettuce, tomato, and cheese.",
+        "price": 8.99,
+        "food_picture": ""
+    },
+    {
+        "food_name":"Chicken Tenders",
+        "category":"Entrees",
+        "description":"5 Chicken tenders served with choice of sauce. (BBQ, Honey Mustard, or Ranch).",
+        "price": 9.99,
+        "food_picture": ""
+    },
+    {
+        "food_name":"Fish and Chips",
+        "category":"Entrees",
+        "description":"Battered fish served with fries and tartar sauce.",
+        "price": 12.99,
+        "food_picture": ""
+    },
+    {
+        "food_name":"Chicken Parmesan",
+        "category":"Entrees",
+        "description":"Breaded chicken breast topped with marinara sauce and mozzarella cheese.",
+        "price": 14.99,
+        "food_picture": ""
+    },
+    {
+        "food_name":"Eggplant Parmesan",
+        "category":"Entrees",
+        "description":"Breaded eggplant topped with marinara sauce and mozzarella cheese.",
+        "price": 14.99,
+        "food_picture": ""
+    },
+    {
+        "food_name":"Lasagna",
+        "category":"Entrees",
+        "description":"Beef, ricotta, and mozzarella layered between pasta sheets and baked to perfection.",
+        "price": 15.99,
+        "food_picture": ""
+    },
+    {
+        "food_name":"Sweet Potato Lasagna",
+        "category":"Entrees",
+        "description":"Sweet potato, spinach, and cheese layered between pasta sheets and baked to perfection.",
+        "price": 15.99,
+        "food_picture": ""
+    },
+    
+    
+    {
+        "food_name":"Chicken Wings",
+        "category":"Entrees",
+        "description":"12 Wings option of Bone in or Boneless, and choice of sauce. (Buffalo, BBQ, Teriyaki, or Garlic Parmesan).",
+        "price": 13.99,
+        "food_picture": ""
+    },
+    {
+        "food_name":"Mozzarella Sticks",
+        "category":"Entrees",
+        "description":"6 Mozzarella sticks served with marinara sauce.",
+        "price": 7.99,
+        "food_picture": ""
+    },
+    {
+        "food_name":"Onion Rings",
+        "category":"Entrees",
+        "description":"Battered onion rings served with choice of sauce. (BBQ, Honey Mustard, or Ranch).",
+        "price": 6.99,
+        "food_picture": ""
+    },
+    {
+        "food_name":"French Fries",
+        "category":"Entrees",
+        "description":"Fresh cut fries.",
+        "price": 4.99,
+        "food_picture": ""
+    },
+    {
+        "food_name":"Garlic Bread",
+        "category":"Entrees",
+        "description":"Toasted garlic bread.",
+        "price": 4.99,
+        "food_picture": ""
+    },
+    {
+        "food_name":"Cheese Bread",
+        "category":"Entrees",
+        "description":"Toasted garlic bread with melted mozzarella cheese.",
+        "price": 5.99,
+        "food_picture": ""
+    },
+    {
+        "food_name":"Bread Sticks",
+        "category":"Entrees",
+        "description":"Toasted bread sticks served with marinara sauce.",
+        "price": 5.99,
+        "food_picture": ""
+    },
+    {
+        "food_name":"Cheese Cake",
+        "category":"Dessert",
+        "description":"New York style cheesecake.",
+        "price": 5.99,
+        "food_picture": ""
+    },
+    {
+        "food_name":"Chocolate Cake",
+        "category":"Dessert",
+        "description":"Chocolate cake.",
+        "price": 5.99,
+        "food_picture": ""
+    },
+    {
+        "food_name":"Tiramisu",
+        "category":"Dessert",
+        "description":"Italian dessert made of ladyfingers dipped in coffee, layered with a whipped mixture of eggs, sugar, and mascarpone cheese, flavored with cocoa.",
+        "price": 5.99,
+        "food_picture": ""
+    },
+    {
+        "food_name":"Cannoli",
+        "category":"Dessert",
+        "description":"Italian pastry consisting of a tube-shaped shell of fried pastry dough, filled with a sweet, creamy filling containing ricotta.",
+        "price": 5.99,
+        "food_picture": ""
+    },
+    {
+        "food_name":"Ice Cream",
+        "category":"Dessert",
+        "description":"Vanilla, Chocolate, or Strawberry.",
+        "price": 3.99,
+        "food_picture": ""
+    },
+    {
+        "food_name":"Cheetos and Warm Mountain Dew",
+        "category":"Specials",
+        "description":"Cheetos and warm Mountain Dew.",
+        "price": 5.99,
+        "food_picture": ""
+    },
+    {
+        "food_name":"Pork Ramen",
+        "category":"Specials",
+        "description":"Pork Ramen served with a side of kimchi and a soft boiled egg.",
+        "price": 12.99,
+        "food_picture": ""
+    },
+    {
+        "food_name":"Creamy Tuscan Chicken",
+        "category":"Specials",
+        "description":"Creamy Tuscan Chicken served with a side of garlic bread.",
+        "price": 14.99,
+        "food_picture": ""
+    },
+    {
+        "food_name":"Coke",
+        "category":"Drinks",
+        "description":"Option of Diet Coke, Coke Zero, or Regular Coke.",
+        "price": 2.99,
+        "food_picture": ""
+    },
+    {
+        "food_name":"Sprite",
+        "category":"Drinks",
+        "description":"Option of Diet Sprite, Sprite Zero, or Regular Sprite.",
+        "price": 2.99,
+        "food_picture": ""
+    },
+    {
+        "food_name":"Fanta",
+        "category":"Drinks",
+        "description":"Option of Diet Fanta, Fanta Zero, or Regular Fanta.",
+        "price": 2.99,
+        "food_picture": ""
+    },
+    {
+        "food_name":"Lemonade",
+        "category":"Drinks",
+        "description":"Option of Diet Lemonade, Lemonade Zero, or Regular Lemonade.",
+        "price": 2.99,
+        "food_picture": ""
+    },
+    {
+        "food_name":"Iced Tea",
+        "category":"Drinks",
+        "description":"Option of Diet Iced Tea, Iced Tea Zero, or Regular Iced Tea.",
+        "price": 2.99,
+        "food_picture": ""
+    },
+    {
+        "food_name":"Water",
+        "category":"Drinks",
+        "description":"Option of Sparkling Water, Still Water, or Flavored Water.",
+        "price": 2.99,
+        "food_picture": ""
+    }
+]
+  
