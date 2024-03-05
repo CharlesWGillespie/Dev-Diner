@@ -31,7 +31,7 @@ type Query{
 
 type Mutation{
     addUser(firstName: String!, lastName: String!, email: String!, password: String!, phoneNumber: String):User
-    login(email: String!, password: String!)
+    login(email: String!, password: String!):Auth
 }
 `
 
