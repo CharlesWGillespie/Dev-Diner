@@ -21,9 +21,9 @@ const startApolloServer = async () => {
     app.use(express.json());
   
     app.use('/graphql', expressMiddleware(server, 
-    //   {
-    //   context: authMiddleware
-    // }
+      {
+      context: authMiddleware
+    }
     ));
   
     //if the node_env is set to production, the backend will serve the client bundle (instead of it running independently on vite)
