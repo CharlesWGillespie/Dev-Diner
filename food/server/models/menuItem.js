@@ -7,10 +7,8 @@ const menuItemSchema = new Schema({
         trim: true
     },
     category: {
-        type: String,
-        required: true,
-        trim: true
-        
+        type: Schema.Types.ObjectId,
+        ref: 'Category'
     },
     description: {
         type: String,
