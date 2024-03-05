@@ -1,0 +1,67 @@
+[
+    {
+      "firstName": "Brian",
+      "lastName": "Kernighan",
+      "email": "bkernighan@techfriends.dev",
+      "phoneNumber": "123-456-7890",
+      "password": "password01",
+      "role":""
+    },
+    {
+      "firstName": "Max",
+      "lastName": "Kanat-Alexander",
+      "email": "mkanatalexander@techfriends.dev",
+      "phoneNumber": "123-456-7890",
+      "password": "password02",
+      "role":""
+    },
+    {
+      "firstName": "Kent",
+      "lastName": "Beck",
+      "email": "kbeck@techfriends.dev",
+      "phoneNumber": "123-456-7890",
+      "password": "password04",
+      "role":""
+    },
+    {
+      "firstName": "Edward",
+      "lastName": "Berard",
+      "email": "evberard@techfriends.dev",
+      "phoneNumber": "123-456-7890",
+      "password": "password05",
+      "role":""
+    },
+    {
+      "firstName": "Alan",
+      "lastName": "Kay",
+      "email": "akay@techfriends.dev",
+      "phoneNumber": "123-456-7890",
+      "password": "password06",
+      "role":""
+    },
+    {
+      "firstName": "David",
+      "lastName": "Thomas",
+      "email": "dthomas@techfriends.dev",
+      "phoneNumber": "123-456-7890",
+      "password": "password08",
+      "role":""
+    },
+    {
+      "firstName": "Donald",
+      "lastName": "Knuth",
+      "email": "dknuth@techfriends.dev",
+      "phoneNumber": "123-456-7890",
+      "password": "password09",
+      "role":""
+    },
+    {
+      "firstName": "Lernantino",
+      "lastName": "Garfield",
+      "email": "lernantino@techfriends.dev",
+      "phoneNumber": "123-456-7890",
+      "password": "password10",
+      "role":""
+    }
+  ]
+  
