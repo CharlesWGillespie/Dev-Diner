@@ -1,3 +1,5 @@
+
+
 const typeDefs = `#graphql
 
 type User{
@@ -8,6 +10,7 @@ type User{
     password: String
     phoneNumber: String
     role: [String]
+    #["admin"]
 }
 type menuItem{
     name: String
@@ -32,6 +35,7 @@ type Query{
 type Mutation{
     addUser(firstName: String!, lastName: String!, email: String!, password: String!, phoneNumber: String):User
     login(email: String!, password: String!):Auth
+    addMenuItem(name: String!, category: String!): menuItem
 }
 `
 
