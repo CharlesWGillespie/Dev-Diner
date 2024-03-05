@@ -1,16 +1,14 @@
 const { Schema, model } = require('mongoose')
 
 const menuItemSchema = new Schema({
-    name: {
+    food_name: {
         type: String,
         required: true,
         trim: true
     },
     category: {
-        type: String,
-        required: true,
-        trim: true
-        
+        type: Schema.Types.ObjectId,
+        ref: 'Category'
     },
     description: {
         type: String,
