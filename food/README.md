@@ -64,18 +64,41 @@ End-to-end testing should be performed to validate user workflows.
 
 
 client/
+  public/
+    food-img/
+      'all of my images'
   src/
     components/
-      ProductItem.jsx
-      ProductList.jsx
-      CategoryMenu.jsx
-      Cart.jsx
+      Menu-Item.jsx
+      Nav.jsx
     pages/
-      Home.jsx
-    assets/
-      spinner.gif
+      HomePage.jsx
+      CartPage.jsx
+      LoginPage.jsx
+      SignupPage.jsx
+      MenuPage.jsx
     utils/
       actions.js
       GlobalState.js
       helpers.js
+      mutations.js
+      reducers.js
       queries.js
+server/
+  models/
+    Category.js
+    index.js
+    menuItem.js
+    Order.js
+    User.js
+  Schemas/
+    index.js
+    resolvers.js
+    typeDefs.js
+  seeders/
+    cleanDB.js
+    menuSeeds.json
+    seed.js
+    userSeeds.json
+  utils/
+    auth.js

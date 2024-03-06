@@ -9,9 +9,10 @@ const MenuItemCard = ({ name, description, price, imageUrl }) => {
     <Card sx={{ maxWidth: 250 }}>
       <CardMedia
         component="img"
-        height="250"
+        height="auto"
         image={imageUrl}
         alt={name}
+        sx={{ maxHeight: 150 }}
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
