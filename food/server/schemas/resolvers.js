@@ -14,19 +14,19 @@ const resolvers = {
             return { user, token }
         },
         login: async (parent, { email, password }) => {
-            const userObject = await User.findOne({ email })
+            const user = await User.findOne({ email })
 
-            if (!userObject) {
+            if (!user) {
                 throw AuthenticationError
             }
 
-            const PWCorrect = await userObject.isCorrectPassword(password)
+            const PWCorrect = await user.checkPassword(password)
 
             if(!PWCorrect){
                 throw AuthenticationError
             }
-            const token = signToken(userObject)
-            return{token, userObject}
+            const token = signToken(user)
+            return{token, user}
         }
     }
 }
