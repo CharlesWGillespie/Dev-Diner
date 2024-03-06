@@ -43,7 +43,7 @@ type Query{
 }
 
 type Mutation{
-    addUser(firstName: String!, lastName: String!, email: String!, password: String!, phoneNumber: String):User
+    addUser(firstName: String!, lastName: String!, email: String!, password: String!, phoneNumber: String):Auth
 
     login(email: String!, password: String!):Auth
     addCategory(name: String): Category
