@@ -23,14 +23,7 @@
       "password": "password04",
       "role":""
     },
-    {
-      "firstName": "Edward",
-      "lastName": "Berard",
-      "email": "evberard@techfriends.dev",
-      "phoneNumber": "123-456-7890",
-      "password": "password05",
-      "role":""
-    },
+    
     {
       "firstName": "Alan",
       "lastName": "Kay",

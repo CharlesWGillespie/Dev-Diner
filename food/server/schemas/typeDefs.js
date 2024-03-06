@@ -30,6 +30,10 @@ type Order{
     order_items: [menuItem]
     order_total: Float
 }
+type Auth{
+    token: ID
+    user: User
+}
 
 type Query{
     users: [User]
@@ -40,8 +44,9 @@ type Query{
 
 type Mutation{
     addUser(firstName: String!, lastName: String!, email: String!, password: String!, phoneNumber: String):User
+
     login(email: String!, password: String!):Auth
-    addCategory(name: )
+    addCategory(name: String): Category
     addMenuItem(name: String!, category: String!): menuItem
 }
 `
