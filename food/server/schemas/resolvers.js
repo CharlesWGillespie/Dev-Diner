@@ -1,4 +1,5 @@
 const { User, Order, menuItem, Category } = require('../models')
+const { signToken, AuthenticationError } = require('../utils/auth')
 
 const resolvers = {
     Query: {
@@ -12,7 +13,21 @@ const resolvers = {
             const token = signToken(user)
             return { user, token }
         },
-        login: async ()
+        login: async (parent, { email, password }) => {
+            const userObject = await User.findOne({ email })
+
+            if (!userObject) {
+                throw AuthenticationError
+            }
+
+            const PWCorrect = await userObject.isCorrectPassword(password)
+
+            if(!PWCorrect){
+                throw AuthenticationError
+            }
+            const token = signToken(userObject)
+            return{token, userObject}
+        }
     }
 }
 
