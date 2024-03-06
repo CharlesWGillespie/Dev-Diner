@@ -21,13 +21,6 @@
       "food_picture": ""
     },
     {
-      "food_name": "Mushroom Pizza",
-      "category": "Pizza",
-      "description": "Fresh tomato sauce, mozzarella, and mushrooms.",
-      "price": 11.99,
-      "food_picture": ""
-    },
-    {
       "food_name": "Cheese Pizza",
       "category": "Pizza",
       "description": "Fresh tomato sauce and mozzarella.",
@@ -101,34 +94,6 @@
         "food_name":"Cheese Burger",
         "category":"Entrees",
         "description":"Option of beef or chicken patty, lettuce, tomato, and cheese.",
-        "price": 8.99,
-        "food_picture": ""
-    },
-    {
-        "food_name":"Veggie Burger",
-        "category":"Entrees",
-        "description":"Veggie patty, lettuce, tomato, and cheese.",
-        "price": 8.99,
-        "food_picture": ""
-    },
-    {
-        "food_name":"Turkey Burger",
-        "category":"Entrees",
-        "description":"Turkey patty, lettuce, tomato, and cheese.",
-        "price": 8.99,
-        "food_picture": ""
-    },
-    {
-        "food_name":"Salmon Burger",
-        "category":"Entrees",
-        "description":"Salmon patty, lettuce, tomato, and cheese.",
-        "price": 8.99,
-        "food_picture": ""
-    },
-    {
-        "food_name":"Tofu Burger",
-        "category":"Entrees",
-        "description":"Tofu patty, lettuce, tomato, and cheese.",
         "price": 8.99,
         "food_picture": ""
     },
@@ -219,13 +184,6 @@
         "food_picture": ""
     },
     {
-        "food_name":"Bread Sticks",
-        "category":"Entrees",
-        "description":"Toasted bread sticks served with marinara sauce.",
-        "price": 5.99,
-        "food_picture": ""
-    },
-    {
         "food_name":"Cheese Cake",
         "category":"Dessert",
         "description":"New York style cheesecake.",
@@ -256,7 +214,7 @@
     {
         "food_name":"Ice Cream",
         "category":"Dessert",
-        "description":"Vanilla, Chocolate, or Strawberry.",
+        "description":"Vanilla, Cookies & Cream, Chocolate, or Strawberry.",
         "price": 3.99,
         "food_picture": ""
     },

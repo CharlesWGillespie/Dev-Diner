@@ -1,5 +1,8 @@
 import NavBar from "../components/Nav"
 import Container from '@mui/material/Container';
+import MenuList from "../components/MenuList";
+import MenuCard from "../components/MenuCard";
+import CategoryMenu from "../components/CategoryMenu";
 
 export default function HomePage() {
   return (
@@ -12,7 +15,8 @@ export default function HomePage() {
       alignItems: 'center',
       height: '100vh'
     }}>
-      
+      <CategoryMenu />
+      <MenuList />
     </Container>
     </>
   )

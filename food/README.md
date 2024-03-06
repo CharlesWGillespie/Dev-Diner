@@ -61,3 +61,21 @@ API documentation should be provided for backend endpoints.
 Unit tests should be written for critical functionalities.
 Integration tests should be conducted to ensure smooth interaction between components.
 End-to-end testing should be performed to validate user workflows.
+
+
+client/
+  src/
+    components/
+      ProductItem.jsx
+      ProductList.jsx
+      CategoryMenu.jsx
+      Cart.jsx
+    pages/
+      Home.jsx
+    assets/
+      spinner.gif
+    utils/
+      actions.js
+      GlobalState.js
+      helpers.js
+      queries.js
