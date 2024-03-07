@@ -64,7 +64,7 @@
       },
     {
         "food_name": "Goa Choi Bao",
-        "category": "Dim Sum",
+        "category": "Specials",
         "description": "Steamed vegetable dumplings.",
         "price": 5.99,
         "food_picture": "/food-img/Goa-Choi-Bao.png"
@@ -112,16 +112,16 @@
         "food_picture": "/food-img/chicken-parm.png"
     },
     {
-        "food_name":"Sweet Potato Lasagna",
-        "category":"Entrees",
-        "description":"Sweet potato, spinach, and cheese layered between pasta sheets and baked to perfection.",
+        "food_name":"Sweet Lasagna",
+        "category":"Specials",
+        "description":"Sweet potato, spinach, and cheese .",
         "price": 15.99,
         "food_picture": "/food-img/sweetPLasagna.png"
     },
     {
         "food_name":"Chicken Wings",
         "category":"Entrees",
-        "description":"12 Wings option of Bone in or Boneless, and choice of sauce. (Buffalo, BBQ, Teriyaki, or Garlic Parmesan).",
+        "description":"Choice of sauce. (Buffalo, BBQ, Teriyaki, or Garlic Parmesan).",
         "price": 13.99,
         "food_picture": "/food-img/chicken-wings.png"
     },
@@ -135,7 +135,7 @@
     {
         "food_name":"Onion Rings",
         "category":"Entrees",
-        "description":"Battered onion rings served with choice of sauce. (BBQ, Honey Mustard, or Ranch).",
+        "description":"Served with choice of sauce. (BBQ, Honey Mustard, or Ranch).",
         "price": 6.99,
         "food_picture": "/food-img/onion-rings.png"
     },
@@ -170,14 +170,14 @@
     {
         "food_name":"Tiramisu",
         "category":"Dessert",
-        "description":"Italian dessert made of ladyfingers dipped in coffee, layered with a whipped mixture of eggs, sugar, and mascarpone cheese, flavored with cocoa.",
+        "description":"Mascarpone cheese, flavored with cocoa.",
         "price": 5.99,
         "food_picture": "/food-img/tiramisu.png"
     },
     {
         "food_name":"Cannoli",
         "category":"Dessert",
-        "description":"Italian pastry consisting of a tube-shaped shell of fried pastry dough, filled with a sweet, creamy filling containing ricotta.",
+        "description":"Filled with a sweet, creamy filling containing ricotta.",
         "price": 5.99,
         "food_picture": "/food-img/canolli.png"
     },
@@ -191,21 +191,21 @@
     {
         "food_name":"Cheetos and Warm Mountain Dew",
         "category":"Specials",
-        "description":"Cheetos and warm Mountain Dew.",
+        "description":"Comes with a napkin",
         "price": 5.99,
         "food_picture": "/food-img/cheetos.png"
     },
     {
         "food_name":"Pork Ramen",
         "category":"Specials",
-        "description":"Pork Ramen served with a side of kimchi and a soft boiled egg.",
+        "description":"Served with a side of kimchi and a soft boiled egg.",
         "price": 12.99,
         "food_picture": "/food-img/pork-ramen.png"
     },
     {
         "food_name":"Creamy Tuscan Chicken",
         "category":"Specials",
-        "description":"Creamy Tuscan Chicken served with a side of garlic bread.",
+        "description":"Comes with a side of garlic bread.",
         "price": 14.99,
         "food_picture": "/food-img/creamy-tuscan-chicken.png"
     },
