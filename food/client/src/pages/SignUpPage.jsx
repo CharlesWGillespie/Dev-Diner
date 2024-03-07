@@ -13,21 +13,39 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
-
-
-
-
+import { useState } from 'react';
+import { useMutation } from '@apollo/client';
+import { ADD_USER } from '../utils/mutations';
+import Auth from '../utils/auth'
 const defaultTheme = createTheme();
 
 export default function SignUp() {
-  const handleSubmit = (event) => {
+
+  const [formState, setFormState] = useState({ email: '', password: '', firstName: '', lastName: '', phoneNumber: '' })
+  const [addUser] = useMutation(ADD_USER)
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
+    const mutationResponse = await addUser({
+      variables: {
+        email: formState.email,
+        password: formState.password,
+        firstName: formState.firstName,
+        lastName: formState.lastName,
+        phoneNumber: formState.phoneNumber
+      }
+    })
+    const token = mutationResponse.data.addUser.token
+    Auth.login(token)
   };
+
+  const handleChange = (event) => {
+    const { name, value } = event.currentTarget
+    setFormState({
+      ...formState,
+      [name]: value
+    })
+  }
 
   return (
     <ThemeProvider theme={defaultTheme}>
@@ -58,6 +76,7 @@ export default function SignUp() {
                   id="firstName"
                   label="First Name"
                   autoFocus
+                  onChange={handleChange}
                 />
               </Grid>
               <Grid item xs={12} sm={6}>
@@ -68,6 +87,7 @@ export default function SignUp() {
                   label="Last Name"
                   name="lastName"
                   autoComplete="family-name"
+                  onChange={handleChange}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -78,14 +98,16 @@ export default function SignUp() {
                   label="Email Address"
                   name="email"
                   autoComplete="email"
+                  onChange={handleChange}
                 />
               </Grid><Grid item xs={12}>
                 <TextField
                   fullWidth
                   id="phone"
                   label="Phone Number"
-                  name="Phone Number"
+                  name="phoneNumber"
                   autoComplete="Phone Number"
+                  onChange={handleChange}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -97,6 +119,7 @@ export default function SignUp() {
                   type="password"
                   id="password"
                   autoComplete="new-password"
+                  onChange={handleChange}
                 />
               </Grid>
             </Grid>
@@ -110,7 +133,7 @@ export default function SignUp() {
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>
-                <Link href="#" variant="body2">
+                <Link href="login" variant="body2">
                   Already have an account? Sign in
                 </Link>
               </Grid>
