@@ -13,19 +13,38 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
+import { useState } from 'react'
+import { useMutation } from '@apollo/client'
+import { LOGIN } from '../utils/mutations'
+import Auth from '../utils/auth'
 
 
 
 const defaultTheme = createTheme();
 
 export default function LoginPage() {
-  const handleSubmit = (event) => {
+
+  const [formState, setFormState] = useState({ email: '', password: '' })
+  const [login, { error }] = useMutation(LOGIN)
+
+  const handleChange = (event) => {
+    const { name, value } = event.currentTarget
+    setFormState({
+      ...formState, [name]: value
+    })
+  }
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
+    try {
+      const mutationResponse = await login({
+        variables: { email: formState.email, password: formState.password }
+      })
+      const token = mutationResponse.data.login.token
+      Auth.login(token)
+    } catch (e) {
+      console.log(e)
+    }
   };
 
   return (
@@ -72,6 +91,7 @@ export default function LoginPage() {
                 name="email"
                 autoComplete="email"
                 autoFocus
+                onChange={handleChange}
               />
               <TextField
                 margin="normal"
@@ -82,11 +102,12 @@ export default function LoginPage() {
                 type="password"
                 id="password"
                 autoComplete="current-password"
+                onChange={handleChange}
               />
-              <FormControlLabel
+              {/* <FormControlLabel
                 control={<Checkbox value="remember" color="primary" />}
                 label="Remember me"
-              />
+              /> */}
               <Button
                 type="submit"
                 fullWidth
@@ -97,12 +118,12 @@ export default function LoginPage() {
               </Button>
               <Grid container>
                 <Grid item xs>
-                  <Link href="#" variant="body2">
+                  {/* <Link href="#" variant="body2">
                     Forgot password?
-                  </Link>
+                  </Link> */}
                 </Grid>
                 <Grid item>
-                  <Link href="#" variant="body2">
+                  <Link href="/signup" variant="body2">
                     {"Don't have an account? Sign Up"}
                   </Link>
                 </Grid>
