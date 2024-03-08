@@ -6,13 +6,13 @@ export default function NavBar() {
     return (
         <AppBar>
             <Toolbar sx={{
-                backgroundColor: 'grey',
+                backgroundColor: '#ff66a3', // Pink background color
                 display: 'flex',
                 justifyContent: 'space-between',
                 alignItems: 'center',
                 padding: '0 20px',
             }}>
-                <Typography variant='h2' component='div'>
+                <Typography variant='h2' component='div' style={{ textStroke: '1px black', padding: '10px' }}>
                     FOOD
                 </Typography>
                 <Stack direction='row' spacing={2}>
