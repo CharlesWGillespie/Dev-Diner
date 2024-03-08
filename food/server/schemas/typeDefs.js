@@ -14,7 +14,7 @@ type User{
 }
 type Category{
     _id: ID
-    category_name: String
+    categoryName: String
 }
 type menuItem{
     _id: ID
@@ -44,10 +44,9 @@ type Query{
 
 type Mutation{
     addUser(firstName: String!, lastName: String!, email: String!, password: String!, phoneNumber: String):Auth
-
     login(email: String!, password: String!):Auth
-    addCategory(name: String): Category
-    addMenuItem(name: String!, category: String!): menuItem
+    addCategory(categoryName: String!): Category
+    addMenuItem(food_name: String!, category: String!): menuItem
 }
 `
 

@@ -1,5 +1,14 @@
 import { gql } from '@apollo/client';
 
+export const ADD_CATEGORY = gql`
+mutation Mutation($categoryName: String!) {
+  addCategory(categoryName: $categoryName) {
+    _id
+    categoryName
+  }
+}`
+
+
 export const LOGIN = gql`
   mutation login($email: String!, $password: String!) {
     login(email: $email, password: $password) {
