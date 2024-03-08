@@ -67,3 +67,23 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+@keyframes neon-glow {
+  0% {
+    color: #fff;
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff;
+  }
+  50% {
+    color: #ff1a75;
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #ff1a75, 0 0 70px #ff1a75, 0 0 80px #ff1a75, 0 0 100px #ff1a75, 0 0 150px #ff1a75;
+  }
+  100% {
+    color: #fff;
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff;
+  }
+}
+
+.glowing-text {
+  animation: neon-glow 5s infinite alternate;
+}
+
