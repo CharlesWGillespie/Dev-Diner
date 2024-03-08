@@ -5,9 +5,18 @@ const resolvers = {
     Query: {
         users: async () => {
             return await User.find({})
+        },
+        categories: async () => {
+            return await Category.find({})
         }
     },
     Mutation: {
+        // deleteCategory:
+        // updateCategoryName:
+        addCategory: async (parent, { categoryName }) => {
+            const category = await Category.create({ categoryName }, )
+            return { category }
+        },
         addUser: async (parent, { firstName, lastName, email, password, phoneNumber }) => {
             const user = await User.create({ firstName, lastName, email, password, phoneNumber })
             const token = signToken(user)
@@ -22,11 +31,11 @@ const resolvers = {
 
             const PWCorrect = await user.checkPassword(password)
 
-            if(!PWCorrect){
+            if (!PWCorrect) {
                 throw AuthenticationError
             }
             const token = signToken(user)
-            return{token, user}
+            return { token, user }
         }
     }
 }
