@@ -1,5 +1,3 @@
-
-
 const typeDefs = `#graphql
 
 type User{
@@ -13,16 +11,16 @@ type User{
     #["admin"]
 }
 type Category{
-    _id: ID
+    _id: String
     categoryName: String
 }
 type menuItem{
-    _id: ID
-    food_name: String
-    category: Category
+    _id: String
+    foodName: String
+    categoryId: String
     description: String
     price: Float
-    food_picture: String
+    foodPicture: String
 }
 type Order{
     _id: ID
@@ -44,10 +42,14 @@ type Query{
 
 type Mutation{
     addUser(firstName: String!, lastName: String!, email: String!, password: String!, phoneNumber: String):Auth
+    updateUser(_id: String!, firstName: String, lastName: String, email: String, phoneNumber: String, role: [String]):User
     login(email: String!, password: String!):Auth
     addCategory(categoryName: String!): Category
     updateCategory(categoryId: ID!, categoryName: String):Category
-    addMenuItem(food_name: String!, category: String!): menuItem
+    deleteCategory(categoryId: ID!):Category
+    addMenuItem(foodName: String!, categoryId: String!, description: String, price: Float, foodPicture: String): menuItem
+    updateMenuItem(_id: String!, foodName: String, description: String, price: Float, foodPicture: String): menuItem
+
 }
 `
 
