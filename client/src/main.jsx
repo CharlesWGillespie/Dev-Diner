@@ -1,5 +1,5 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client'; // Import createRoot from react-dom/client
 import App from './App.jsx';
 import LoginPage from './pages/LoginPage.jsx';
 import HomePage from './pages/HomePage.jsx';
@@ -7,6 +7,7 @@ import SignUp from './pages/SignUpPage.jsx';
 import MenuPage from './pages/MenuPage.jsx';
 import ContactPage from './pages/ContactPage.jsx';
 import CartPage from './pages/CartPage.jsx';
+import './index.css'
 
 const router = createBrowserRouter([
   {
@@ -41,6 +42,6 @@ const router = createBrowserRouter([
   }
 ]);
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+createRoot(document.getElementById('root')).render( // Use createRoot instead of ReactDOM.createRoot
   <RouterProvider router={router} />
 );

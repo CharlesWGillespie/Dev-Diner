@@ -35,7 +35,6 @@ const MenuItemCard = ({ name, description, price, imageUrl, addToCart }) => {
       </div>
       {/* Container to center the button */}
       <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '10px' }}>
-        {/* Add "Add to Cart" button */}
         <Button variant="contained" onClick={handleAddToCart}>
           Add to Cart
         </Button>

@@ -16,7 +16,7 @@ export default function NavBar() {
                     FOOD
                 </Typography>
                 <Stack direction='row' spacing={2}>
-                    <Link to="/" style={{ color: 'white', textDecoration: 'none', fontSize: '25px', marginRight: '40px' }}>Home</Link>
+                    <Link to="/home" style={{ color: 'white', textDecoration: 'none', fontSize: '25px', marginRight: '40px' }}>Home</Link>
                     <Link to="/menu" style={{ color: 'white', textDecoration: 'none', fontSize: '25px', marginRight: '40px' }}>Menu</Link>
                     <Link to="/contact" style={{ color: 'white', textDecoration: 'none', fontSize: '25px', marginRight: '40px' }}>Contact</Link>
                     <Link to="/cart" style={{ color: 'white', textDecoration: 'none', fontSize: '25px', marginRight: '50px' }}>Cart</Link>
