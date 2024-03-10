@@ -46,6 +46,7 @@ type Mutation{
     addUser(firstName: String!, lastName: String!, email: String!, password: String!, phoneNumber: String):Auth
     login(email: String!, password: String!):Auth
     addCategory(categoryName: String!): Category
+    updateCategory(categoryId: ID!, categoryName: String):Category
     addMenuItem(food_name: String!, category: String!): menuItem
 }
 `
