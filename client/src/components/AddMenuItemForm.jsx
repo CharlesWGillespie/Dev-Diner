@@ -1,61 +1,51 @@
 import React, { useState } from 'react';
-import TextField from '@mui/material/TextField';
-import Button from '@mui/material/Button';
 
 const AddMenuItemForm = ({ onSubmit }) => {
-  const [foodName, setFoodName] = useState('');
-  const [description, setDescription] = useState('');
-  const [price, setPrice] = useState('');
-  const [imageUrl, setImageUrl] = useState('');
+  const [menuItem, setMenuItem] = useState({
+    foodName: '',
+    description: '',
+    price: '',
+    imageUrl: ''
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setMenuItem(prevState => ({
+      ...prevState,
+      [name]: value
+    }));
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSubmit({ foodName, description, price, imageUrl });
-    // Reset form fields after submission
-    setFoodName('');
-    setDescription('');
-    setPrice('');
-    setImageUrl('');
+    onSubmit(menuItem);
+    setMenuItem({
+      foodName: '',
+      description: '',
+      price: '',
+      imageUrl: ''
+    });
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <TextField
-        label="Food Name"
-        value={foodName}
-        onChange={(e) => setFoodName(e.target.value)}
-        required
-        fullWidth
-        margin="normal"
-      />
-      <TextField
-        label="Description"
-        value={description}
-        onChange={(e) => setDescription(e.target.value)}
-        required
-        fullWidth
-        margin="normal"
-      />
-      <TextField
-        label="Price"
-        type="number"
-        value={price}
-        onChange={(e) => setPrice(e.target.value)}
-        required
-        fullWidth
-        margin="normal"
-      />
-      <TextField
-        label="Image URL"
-        value={imageUrl}
-        onChange={(e) => setImageUrl(e.target.value)}
-        required
-        fullWidth
-        margin="normal"
-      />
-      <Button type="submit" variant="contained" color="primary">
-        Add Menu Item
-      </Button>
+    <form onSubmit={handleSubmit} style={{ border: '2px solid white', padding: '20px', backgroundColor: 'rgba(255, 255, 255, 0.2)', borderRadius: '10px' }}>
+      <div style={{ marginBottom: '10px' }}>
+        <label htmlFor="foodName" style={{ color: 'white' }}>Food Name:</label>
+        <input type="text" id="foodName" name="foodName" value={menuItem.foodName} onChange={handleChange} style={{ marginLeft: '10px', padding: '5px' }} />
+      </div>
+      <div style={{ marginBottom: '10px' }}>
+        <label htmlFor="description" style={{ color: 'white' }}>Description:</label>
+        <textarea id="description" name="description" value={menuItem.description} onChange={handleChange} style={{ marginLeft: '10px', padding: '5px', resize: 'none' }} />
+      </div>
+      <div style={{ marginBottom: '10px' }}>
+        <label htmlFor="price" style={{ color: 'white' }}>Price:</label>
+        <input type="number" id="price" name="price" value={menuItem.price} onChange={handleChange} style={{ marginLeft: '10px', padding: '5px' }} />
+      </div>
+      <div style={{ marginBottom: '10px' }}>
+        <label htmlFor="imageUrl" style={{ color: 'white' }}>Image URL:</label>
+        <input type="text" id="imageUrl" name="imageUrl" value={menuItem.imageUrl} onChange={handleChange} style={{ marginLeft: '10px', padding: '5px' }} />
+      </div>
+      <button type="submit" style={{ backgroundColor: 'white', color: 'black', padding: '8px 16px', borderRadius: '5px', border: 'none', cursor: 'pointer' }}>Submit</button>
     </form>
   );
 };
