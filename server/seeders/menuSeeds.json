@@ -250,13 +250,7 @@
         "description":"Option of Sparkling Water, Still Water, or Flavored Water.",
         "price": 2.99,
         "food_picture": "/food-img/aquafina.png"
-    },
-    {
-        "food_name":"Beef",
-        "category":"Specials",
-        "description":"Yummy",
-        "price": 2.99,
-        "food_picture": "/food-img/aquafina.png"
     }
+    
 ]
   
