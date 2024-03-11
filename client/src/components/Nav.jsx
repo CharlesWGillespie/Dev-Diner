@@ -13,7 +13,7 @@ export default function NavBar() {
                 padding: '0 20px',
             }}>
                 <Typography variant='h2' component='div' style={{ textStroke: '1px black', padding: '10px' }}>
-                    FOOD
+                    Dev Diner
                 </Typography>
                 <Stack direction='row' spacing={2}>
                     <Link to="/home" style={{ color: 'white', textDecoration: 'none', fontSize: '25px', marginRight: '40px' }}>Home</Link>
