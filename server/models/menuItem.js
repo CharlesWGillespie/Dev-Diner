@@ -1,14 +1,14 @@
 const { Schema, model } = require('mongoose')
 
 const menuItemSchema = new Schema({
-    food_name: {
+    foodName: {
         type: String,
         required: true,
         trim: true
     },
-    category: {
-        type: Schema.Types.ObjectId,
-        ref: 'Category'
+    categoryId: {
+        type: String,
+        required: true
     },
     description: {
         type: String,
@@ -18,7 +18,7 @@ const menuItemSchema = new Schema({
         type: Number,
         required: true,
     },
-    food_picture: {
+    foodPicture: {
         type: String
     }
 })
