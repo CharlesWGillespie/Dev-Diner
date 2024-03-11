@@ -1,28 +1,39 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import NavBar from "../components/Nav";
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import MenuItemCard from "../components/Menu-Item";  // Corrected import path
-import CategoryNav from "../components/CategoryNav"; 
-import menuData from "../../../server/seeders/menuSeeds.json"; 
+import CategoryNav from "../components/CategoryNav";
+import menuData from "../../../server/seeders/menuSeeds.json";
 
 import { useQuery } from '@apollo/client';
-import { QUERY_CATEGORIES, QUERY_MENUITEMS } from '../utils/queries';
+import { useStoreContext } from '../utils/GlobalState';
+import { UPDATE_MENUITEMS } from '../utils/actions';
+import { QUERY_MENUITEMS } from '../utils/queries';
 
 export default function MenuPage() {
-  const [cartItems, setCartItems] = useState([]);
+
+  const [state, dispatch] = useStoreContext()
+
+  const { loading, data: menuItemData } = useQuery(QUERY_MENUITEMS)
+
+  useEffect(() => {
+    if(menuItemData){
+      dispatch({
+        type: UPDATE_MENUITEMS,
+        menuItems: menuItemData.menuItems
+      })
+    }
+  }, [menuItemData, loading, dispatch])
   
-  const categoryResponse = useQuery(QUERY_CATEGORIES)
-  const menuItemResponse = useQuery(QUERY_MENUITEMS)
-  if(categoryResponse.data){console.log(categoryResponse.data.categories)}
-  if(menuItemResponse.data){console.log(menuItemResponse.data.menuItems)}
+  const [cartItems, setCartItems] = useState([]);
 
   const addToCart = (item) => {
     console.log("Adding item to cart:", item);
     setCartItems([...cartItems, item]);
   };
   console.log("Current cart items:", cartItems);
-  
+
   const specials = menuData.filter(item => item.category === 'Specials');
   const menuItemsByCategory = menuData.reduce((acc, item) => {
     if (!acc[item.category]) {
@@ -31,17 +42,18 @@ export default function MenuPage() {
     acc[item.category].push(item);
     return acc;
   }, {});
-  
+
   const handleScrollToCategory = (category) => {
     const element = document.getElementById(category);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
   };
-  
+
   // Filter out the "Specials" category from the list of categories
   const categories = Object.keys(menuItemsByCategory).filter(category => category !== 'Specials');
-  
+
+
   return (
     <>
       <NavBar />
@@ -62,7 +74,7 @@ export default function MenuPage() {
               </Grid>
             ))}
           </Grid>
-          
+
           {categories.map((category) => (
             <div key={category} id={category} style={{ marginBottom: '20px' }}>
               <h2>{category}</h2>
