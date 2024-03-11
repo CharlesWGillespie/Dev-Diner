@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import NavBar from "../components/Nav";
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
@@ -9,9 +9,25 @@ import AddCategoryForm from '../components/AddCategoryForm';
 import AddMenuItemForm from '../components/AddMenuItemForm'; 
 
 import { useQuery } from '@apollo/client';
-import { QUERY_CATEGORIES, QUERY_MENUITEMS } from '../utils/queries';
+import { useStoreContext } from '../utils/GlobalState';
+import { UPDATE_MENUITEMS } from '../utils/actions';
+import { QUERY_MENUITEMS } from '../utils/queries';
 
 export default function MenuPage() {
+
+  const [state, dispatch] = useStoreContext()
+
+  const { loading, data: menuItemData } = useQuery(QUERY_MENUITEMS)
+
+  useEffect(() => {
+    if(menuItemData){
+      dispatch({
+        type: UPDATE_MENUITEMS,
+        menuItems: menuItemData.menuItems
+      })
+    }
+  }, [menuItemData, loading, dispatch])
+  
   const [cartItems, setCartItems] = useState([]);
   const [submittedCategory, setSubmittedCategory] = useState(null);
   const [showMenuItemForm, setShowMenuItemForm] = useState({}); // State to control visibility of menu item form for each category
