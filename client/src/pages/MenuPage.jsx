@@ -6,9 +6,17 @@ import MenuItemCard from "../components/Menu-Item";  // Corrected import path
 import CategoryNav from "../components/CategoryNav"; 
 import menuData from "../../../server/seeders/menuSeeds.json"; 
 
+import { useQuery } from '@apollo/client';
+import { QUERY_CATEGORIES, QUERY_MENUITEMS } from '../utils/queries';
+
 export default function MenuPage() {
   const [cartItems, setCartItems] = useState([]);
   
+  const categoryResponse = useQuery(QUERY_CATEGORIES)
+  const menuItemResponse = useQuery(QUERY_MENUITEMS)
+  console.log(categoryResponse.data.categories)
+  console.log(menuItemResponse.data.menuItems)
+
   const addToCart = (item) => {
     console.log("Adding item to cart:", item);
     setCartItems([...cartItems, item]);
