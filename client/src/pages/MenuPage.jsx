@@ -6,12 +6,16 @@ import MenuItemCard from "../components/Menu-Item";  // Corrected import path
 import CategoryNav from "../components/CategoryNav"; 
 import menuData from "../../../server/seeders/menuSeeds.json"; 
 import AddCategoryForm from '../components/AddCategoryForm';
+import AddMenuItemForm from '../components/AddMenuItemForm'; // Import the new form component
 
 import { useQuery } from '@apollo/client';
 import { QUERY_CATEGORIES, QUERY_MENUITEMS } from '../utils/queries';
 
 export default function MenuPage() {
   const [cartItems, setCartItems] = useState([]);
+  const [submittedCategory, setSubmittedCategory] = useState(null);
+  const [showMenuItemForm, setShowMenuItemForm] = useState(false); // State to control visibility of menu item form
+  const [newMenuItem, setNewMenuItem] = useState(null); // State to store new menu item
   
   const categoryResponse = useQuery(QUERY_CATEGORIES)
   const menuItemResponse = useQuery(QUERY_MENUITEMS)
@@ -41,11 +45,16 @@ export default function MenuPage() {
   };
 
   const onCategorySubmit = (category) => {
-    // Implement logic to handle category submission
+    setSubmittedCategory(category);
     console.log('Submitted category:', category);
   };
+
+  const handleAddMenuItem = (menuItem) => {
+    setNewMenuItem(menuItem);
+    console.log('New menu item:', menuItem);
+    setShowMenuItemForm(false); // Hide the form after submission
+  };
   
-  // Filter out the "Specials" category from the list of categories
   const categories = Object.keys(menuItemsByCategory).filter(category => category !== 'Specials');
   
   return (
@@ -88,6 +97,22 @@ export default function MenuPage() {
             </div>
           ))}
         </div>
+        {/* Render the submitted category as h1 if it exists */}
+        {submittedCategory && <h1>{submittedCategory}</h1>}
+        {/* Button to toggle visibility of menu item form */}
+        <button onClick={() => setShowMenuItemForm(!showMenuItemForm)}>Add Menu Item</button>
+        {/* Render the menu item form if showMenuItemForm is true */}
+        {showMenuItemForm && <AddMenuItemForm onSubmit={handleAddMenuItem} />}
+        {/* Render the new menu item as MenuItemCard */}
+        {newMenuItem && (
+          <MenuItemCard
+            name={newMenuItem.foodName}
+            description={newMenuItem.description}
+            price={newMenuItem.price}
+            imageUrl={newMenuItem.imageUrl}
+            addToCart={addToCart}
+          />
+        )}
         <AddCategoryForm onCategorySubmit={onCategorySubmit} />
       </Container>
     </>
