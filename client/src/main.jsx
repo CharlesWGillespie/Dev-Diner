@@ -5,7 +5,6 @@ import LoginPage from './pages/LoginPage.jsx';
 import HomePage from './pages/HomePage.jsx';
 import SignUp from './pages/SignUpPage.jsx';
 import MenuPage from './pages/MenuPage.jsx';
-import ContactPage from './pages/ContactPage.jsx';
 import CartPage from './pages/CartPage.jsx';
 import './index.css'
 
@@ -29,10 +28,6 @@ const router = createBrowserRouter([
       {
         path: '/menu',
         element: <MenuPage />
-      },
-      {
-        path: '/contact',
-        element: <ContactPage />
       },
       {
         path: '/cart',

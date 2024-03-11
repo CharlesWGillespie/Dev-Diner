@@ -1,12 +1,11 @@
 import React from 'react';
-import NavBar from "../components/Nav";
-import Container from '@mui/material/Container';
-import { Typography } from '@mui/material';
+import { Typography, Container } from '@mui/material';
 
-export default function ContactPage() {
+export default function Footer() {
   return (
-    <>
-      <NavBar />
+    <footer>
+      <Container>
+      </Container>
       <Container>
         <Typography variant="h2" align="center" gutterBottom>
           Contact Us
@@ -15,6 +14,6 @@ export default function ContactPage() {
           To place an order over the phone, please call: <a href="tel:+12031231234">+1 (203) 123-1234</a>
         </Typography>
       </Container>
-    </>
+    </footer>
   );
 }
