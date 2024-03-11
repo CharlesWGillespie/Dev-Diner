@@ -1,7 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom'; // Import Link component
 import NavBar from "../components/Nav";
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
+import Button from '@mui/material/Button';
 
 export default function HomePage() {
   return (
@@ -25,9 +27,15 @@ export default function HomePage() {
               <p>The Perfect Blend of Code and Cuisine</p>
             </div>
           </Grid>
+          <Grid item xs={12} style={{ textAlign: 'center', marginTop: '50px' }}>
+            <Link to="/menu" style={{ color: 'inherit', textDecoration: 'none' }}>
+              <Button variant="contained" color="primary">
+                Order Now
+              </Button>
+            </Link>
+          </Grid>
         </Grid>
       </Container>
     </>
   );
 }
-

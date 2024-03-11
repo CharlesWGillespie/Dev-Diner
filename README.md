@@ -1,3 +1,29 @@
+# DevDiner [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+## Description
+  This project is a Restaurant Management System aimed at providing restaurant owners with a comprehensive platform to manage their restaurant's app efficiently. Users can customize their experience, interact seamlessly with the menu, and streamline operations.
+
+## Table of Contents
+1. [Description](#description)
+2. [Installation](#installation)
+3. [Usage](#usage)
+4. [Contributing](#contributing)
+5. [License](#license)
+6. [Questions](#questions)
+
+
+## Installation
+No installation Necessary you can find the live page [Here!](https://devdiner-c9014b2ccd3e.herokuapp.com/)
+
+## Usage
+Visit the application's homepage.
+
+## Contribution
+Click on the "Sign Up" button to create a new account, or log in with existing credentials. Once logged in, navigate to the menu management section.
+
+## License:
+This project is licensed under the MIT License - see the [MIT License](https://opensource.org/licenses/MIT) for details.
+
 # User Story:
 
 As a restaurant owner, I want to manage my restaurant's app efficiently, allowing users to customize their experience and interact seamlessly with our menu, so that I can enhance customer satisfaction and streamline operations.
@@ -8,7 +34,6 @@ As a restaurant owner, I want to manage my restaurant's app efficiently, allowin
 
 Users can sign up for an account.
 Users can log in using their credentials.
-Users can log out securely.
 
 ## Menu Management:
 
@@ -62,43 +87,9 @@ Unit tests should be written for critical functionalities.
 Integration tests should be conducted to ensure smooth interaction between components.
 End-to-end testing should be performed to validate user workflows.
 
+## Questions
+For questions the project, I can be contacted through GitHub or via email.
 
-client/
-  public/
-    food-img/
-      'all of my images'
-  src/
-    components/
-      Menu-Item.jsx
-      Nav.jsx
-    pages/
-      HomePage.jsx
-      CartPage.jsx
-      LoginPage.jsx
-      SignupPage.jsx
-      MenuPage.jsx
-    utils/
-      actions.js
-      GlobalState.js
-      helpers.js
-      mutations.js
-      reducers.js
-      queries.js
-server/
-  models/
-    Category.js
-    index.js
-    menuItem.js
-    Order.js
-    User.js
-  Schemas/
-    index.js
-    resolvers.js
-    typeDefs.js
-  seeders/
-    cleanDB.js
-    menuSeeds.json
-    seed.js
-    userSeeds.json
-  utils/
-    auth.js
+GitHub - https://github.com/charleswgillespie
+
+Email - charlesgillespiew@gmail.com
