@@ -5,6 +5,7 @@ import Grid from '@mui/material/Grid';
 import MenuItemCard from "../components/Menu-Item";  // Corrected import path
 import CategoryNav from "../components/CategoryNav"; 
 import menuData from "../../../server/seeders/menuSeeds.json"; 
+import AddCategoryForm from '../components/AddCategoryForm';
 
 import { useQuery } from '@apollo/client';
 import { QUERY_CATEGORIES, QUERY_MENUITEMS } from '../utils/queries';
@@ -37,6 +38,11 @@ export default function MenuPage() {
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
+  };
+
+  const onCategorySubmit = (category) => {
+    // Implement logic to handle category submission
+    console.log('Submitted category:', category);
   };
   
   // Filter out the "Specials" category from the list of categories
@@ -82,8 +88,8 @@ export default function MenuPage() {
             </div>
           ))}
         </div>
+        <AddCategoryForm onCategorySubmit={onCategorySubmit} />
       </Container>
     </>
   );
 }
-
