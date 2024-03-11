@@ -14,8 +14,8 @@ export default function MenuPage() {
   
   const categoryResponse = useQuery(QUERY_CATEGORIES)
   const menuItemResponse = useQuery(QUERY_MENUITEMS)
-  console.log(categoryResponse.data.categories)
-  console.log(menuItemResponse.data.menuItems)
+  if(categoryResponse.data){console.log(categoryResponse.data.categories)}
+  if(menuItemResponse.data){console.log(menuItemResponse.data.menuItems)}
 
   const addToCart = (item) => {
     console.log("Adding item to cart:", item);
