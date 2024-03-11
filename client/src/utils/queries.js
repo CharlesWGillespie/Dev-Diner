@@ -10,6 +10,19 @@ export const QUERY_CATEGORIES = gql`
   }
 `;
 
+export const QUERY_MENUITEMS = gql`
+{
+  menuItems {
+    _id
+    categoryId
+    description
+    foodName
+    foodPicture
+    price
+  }
+}
+`
+
 export const QUERY_USER = gql`
   {
     user {
