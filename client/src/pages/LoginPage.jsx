@@ -1,137 +1,79 @@
-import * as React from 'react';
-import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
-import CssBaseline from '@mui/material/CssBaseline';
-import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
-import Link from '@mui/material/Link';
-import Paper from '@mui/material/Paper';
-import Box from '@mui/material/Box';
-import Grid from '@mui/material/Grid';
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-import Typography from '@mui/material/Typography';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import React, { useState } from 'react';
 
-import { useState } from 'react'
-import { useMutation } from '@apollo/client'
-import { LOGIN } from '../utils/mutations'
-import Auth from '../utils/auth'
+const AddMenuItemForm = ({ category, onSubmit }) => {
+  const [formData, setFormData] = useState({
+    food_name: '',
+    description: '',
+    price: '',
+    food_picture: '',
+    category: category // Pass the category to the form
+  });
 
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
 
-
-const defaultTheme = createTheme();
-
-export default function LoginPage() {
-
-  const [formState, setFormState] = useState({ email: '', password: '' })
-  const [login, { error }] = useMutation(LOGIN)
-
-  const handleChange = (event) => {
-    const { name, value } = event.currentTarget
-    setFormState({
-      ...formState, [name]: value
-    })
-  }
-
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    try {
-      const mutationResponse = await login({
-        variables: { email: formState.email, password: formState.password }
-      })
-      const token = mutationResponse.data.login.token
-      Auth.login(token)
-    } catch (e) {
-      console.log(e)
-    }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Call onSubmit function with the form data
+    onSubmit(formData);
+    // Reset form data after submission
+    setFormData({
+      food_name: '',
+      description: '',
+      price: '',
+      food_picture: '',
+      category: category
+    });
   };
 
   return (
-    <ThemeProvider theme={defaultTheme}>
-      <Grid container component="main" sx={{ height: '100vh' }}>
-        <CssBaseline />
-        <Grid
-          item
-          xs={false}
-          sm={4}
-          md={7}
-          sx={{
-            backgroundImage: 'url(https://source.unsplash.com/random?wallpapers)',
-            backgroundRepeat: 'no-repeat',
-            backgroundColor: (t) =>
-              t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-          }}
+    <form onSubmit={handleSubmit}>
+      <label>
+        Name:
+        <input
+          type="text"
+          name="food_name"
+          value={formData.food_name}
+          onChange={handleChange}
+          required
         />
-        <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
-          <Box
-            sx={{
-              my: 8,
-              mx: 4,
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-            }}
-          >
-            <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-              <LockOutlinedIcon />
-            </Avatar>
-            <Typography component="h1" variant="h5">
-              Sign in
-            </Typography>
-            <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
-              <TextField
-                margin="normal"
-                required
-                fullWidth
-                id="email"
-                label="Email Address"
-                name="email"
-                autoComplete="email"
-                autoFocus
-                onChange={handleChange}
-              />
-              <TextField
-                margin="normal"
-                required
-                fullWidth
-                name="password"
-                label="Password"
-                type="password"
-                id="password"
-                autoComplete="current-password"
-                onChange={handleChange}
-              />
-              {/* <FormControlLabel
-                control={<Checkbox value="remember" color="primary" />}
-                label="Remember me"
-              /> */}
-              <Button
-                type="submit"
-                fullWidth
-                variant="contained"
-                sx={{ mt: 3, mb: 2 }}
-              >
-                Sign In
-              </Button>
-              <Grid container>
-                <Grid item xs>
-                  {/* <Link href="#" variant="body2">
-                    Forgot password?
-                  </Link> */}
-                </Grid>
-                <Grid item>
-                  <Link href="/signup" variant="body2">
-                    {"Don't have an account? Sign Up"}
-                  </Link>
-                </Grid>
-              </Grid>
-            </Box>
-          </Box>
-        </Grid>
-      </Grid>
-    </ThemeProvider>
+      </label>
+      <label>
+        Description:
+        <textarea
+          name="description"
+          value={formData.description}
+          onChange={handleChange}
+          required
+        />
+      </label>
+      <label>
+        Price:
+        <input
+          type="number"
+          name="price"
+          value={formData.price}
+          onChange={handleChange}
+          required
+        />
+      </label>
+      <label>
+        Image URL:
+        <input
+          type="text"
+          name="food_picture"
+          value={formData.food_picture}
+          onChange={handleChange}
+          required
+        />
+      </label>
+      <button type="submit">Submit</button>
+    </form>
   );
-}
+};
+
+export default AddMenuItemForm;
