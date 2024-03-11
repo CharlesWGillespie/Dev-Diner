@@ -2,16 +2,18 @@ import React, { useState } from 'react';
 import NavBar from "../components/Nav";
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
-import MenuItem from '../components/Menu-Item'; 
-import CategoryNav from '../components/CategoryNav'; 
-import menuData from '../../../server/seeders/menuSeeds.json'; 
+import MenuItemCard from "../components/Menu-Item";  // Corrected import path
+import CategoryNav from "../components/CategoryNav"; 
+import menuData from "../../../server/seeders/menuSeeds.json"; 
 
 export default function MenuPage() {
   const [cartItems, setCartItems] = useState([]);
   
   const addToCart = (item) => {
+    console.log("Adding item to cart:", item);
     setCartItems([...cartItems, item]);
   };
+  console.log("Current cart items:", cartItems);
   
   const specials = menuData.filter(item => item.category === 'Specials');
   const menuItemsByCategory = menuData.reduce((acc, item) => {
@@ -42,7 +44,7 @@ export default function MenuPage() {
           <Grid container spacing={2}>
             {specials.map((item, index) => (
               <Grid item xs={6} sm={4} md={3} lg={3} key={index}>
-                <MenuItem
+                <MenuItemCard
                   name={item.food_name}
                   description={item.description}
                   price={item.price}
@@ -59,7 +61,7 @@ export default function MenuPage() {
               <Grid container spacing={2}>
                 {menuItemsByCategory[category].map((item, index) => (
                   <Grid item xs={6} sm={4} md={3} lg={3} key={index}>
-                    <MenuItem
+                    <MenuItemCard
                       name={item.food_name}
                       description={item.description}
                       price={item.price}
@@ -76,3 +78,4 @@ export default function MenuPage() {
     </>
   );
 }
+
