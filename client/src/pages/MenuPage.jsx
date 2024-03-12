@@ -19,6 +19,7 @@ export default function MenuPage() {
   const [showMenuItemForm, setShowMenuItemForm] = useState({}); // State to control visibility of menu item form for each category
 
   const [state, dispatch] = useStoreContext()
+
   const [addCategory] = useMutation(ADD_CATEGORY, {
     refetchQueries: [
       QUERY_CATEGORIES, // DocumentNode object parsed with gql
@@ -85,14 +86,13 @@ export default function MenuPage() {
   };
 
   const handleAddMenuItem = async (menuItemWithCategoryId) => {
-    
+
     const mutationResponse = await addMenuItem({variables: menuItemWithCategoryId})
-    console.log('New menu item:', menuItemWithCategoryId);
     
     setShowMenuItemForm(prevState => ({
       ...prevState,
       [menuItemWithCategoryId.categoryId]: false // Hide the form after submission
-    }));
+    }));//note: this is broken
   };
 
   return (
