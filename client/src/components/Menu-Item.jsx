@@ -3,15 +3,16 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import CardMedia from '@mui/material/CardMedia';
-import Button from '@mui/material/Button'; // Import Button component
+import Button from '@mui/material/Button';
+import DeleteIcon from '@mui/icons-material/Delete'; 
 
 const MenuItemCard = ({ name, description, price, imageUrl, addToCart }) => {
   const handleAddToCart = () => {
-    addToCart({ name, price }); // Pass item details to addToCart function
+    addToCart({ name, price });
   };
 
   return (
-    <Card sx={{ maxWidth: 250 }}>
+    <Card sx={{ width: 170 }}>
       <CardMedia
         component="img"
         height="auto"
@@ -19,8 +20,7 @@ const MenuItemCard = ({ name, description, price, imageUrl, addToCart }) => {
         alt={name}
         sx={{ maxHeight: 150 }}
       />
-      {/* Container with fixed height and hidden overflow */}
-      <div style={{ height: '180px', overflow: 'hidden' }}>
+      <div style={{ height: '140px', overflow: 'hidden' }}>
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
             {name}
@@ -33,9 +33,12 @@ const MenuItemCard = ({ name, description, price, imageUrl, addToCart }) => {
           </Typography>
         </CardContent>
       </div>
-      {/* Container to center the button */}
-      <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '10px' }}>
-        {/* Add "Add to Cart" button */}
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+        {/* DELETE BUTTON */}
+        <Button variant="contained" disabled startIcon={<DeleteIcon />} style={{ marginBottom: '10px', color: 'red', width: 'fit-content' }}>
+          
+          Delete
+        </Button>
         <Button variant="contained" onClick={handleAddToCart}>
           Add to Cart
         </Button>

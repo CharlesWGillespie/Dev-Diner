@@ -18,8 +18,6 @@ import { useMutation } from '@apollo/client'
 import { LOGIN } from '../utils/mutations'
 import Auth from '../utils/auth'
 
-
-
 const defaultTheme = createTheme();
 
 export default function LoginPage() {
@@ -53,7 +51,7 @@ export default function LoginPage() {
         <CssBaseline />
         <Grid
           item
-          xs={false}
+          xs={12}   // Set xs to 12 to fill the entire width on small screens
           sm={4}
           md={7}
           sx={{
@@ -63,6 +61,10 @@ export default function LoginPage() {
               t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
             backgroundSize: 'cover',
             backgroundPosition: 'center',
+            display: 'flex',              // Add display flex
+            flexDirection: 'column',      // Set flex direction to column
+            height: '100%',               // Set height to 100%
+            width: '100vw',               // Set width to 100vw
           }}
         />
         <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
@@ -104,10 +106,6 @@ export default function LoginPage() {
                 autoComplete="current-password"
                 onChange={handleChange}
               />
-              {/* <FormControlLabel
-                control={<Checkbox value="remember" color="primary" />}
-                label="Remember me"
-              /> */}
               <Button
                 type="submit"
                 fullWidth
@@ -118,9 +116,6 @@ export default function LoginPage() {
               </Button>
               <Grid container>
                 <Grid item xs>
-                  {/* <Link href="#" variant="body2">
-                    Forgot password?
-                  </Link> */}
                 </Grid>
                 <Grid item>
                   <Link href="/signup" variant="body2">

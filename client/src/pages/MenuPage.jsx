@@ -4,7 +4,6 @@ import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import MenuItemCard from "../components/Menu-Item";
 import CategoryNav from "../components/CategoryNav";
-// import menuData from "../../../server/seeders/menuSeeds.json";
 import AddCategoryForm from '../components/AddCategoryForm';
 import AddMenuItemForm from '../components/AddMenuItemForm';
 
@@ -14,16 +13,14 @@ import { UPDATE_MENUITEMS, ADD_TO_CART } from '../utils/actions';
 import { QUERY_MENUITEMS, QUERY_CATEGORIES } from '../utils/queries';
 import { ADD_CATEGORY, ADD_MENUITEM } from '../utils/mutations'
 import { useMutation } from '@apollo/client';
+
 export default function MenuPage() {
-
-  const [showMenuItemForm, setShowMenuItemForm] = useState({}); // State to control visibility of menu item form for each category
-
+  const [showMenuItemForm, setShowMenuItemForm] = useState({}); 
   const [state, dispatch] = useStoreContext()
-
   const [addCategory] = useMutation(ADD_CATEGORY, {
     refetchQueries: [
-      QUERY_CATEGORIES, // DocumentNode object parsed with gql
-      'GetCategories' // Query name
+      QUERY_CATEGORIES,
+      'GetCategories'
     ],
   })
   const [addMenuItem] = useMutation(ADD_MENUITEM, {
@@ -44,10 +41,9 @@ export default function MenuPage() {
     }
   }, [menuItemData, loading, dispatch])
 
-useEffect(()=>{
-  console.log(state.cart)
-}, [state.cart])
-
+  useEffect(() => {
+    console.log(state.cart)
+  }, [state.cart])
 
   const addToCart = (item) => {
     dispatch({
@@ -55,9 +51,6 @@ useEffect(()=>{
       menuItem: item
     })
   };
-  // console.log("Current cart items:", cartItems);
-
-
 
   const onCategorySubmit = async (category) => {
     const mutationResponse = await addCategory({ variables: { categoryName: category } })
@@ -66,7 +59,7 @@ useEffect(()=>{
   const handleToggleMenuItemForm = (category) => {
     setShowMenuItemForm(prevState => ({
       ...prevState,
-      [category]: !prevState[category] // Toggle the visibility of form for a specific category
+      [category]: !prevState[category]
     }));
   };
   
@@ -89,22 +82,24 @@ useEffect(()=>{
   };
 
   const handleAddMenuItem = async (menuItemWithCategoryId) => {
-
     const mutationResponse = await addMenuItem({variables: menuItemWithCategoryId})
-    
     setShowMenuItemForm(prevState => ({
       ...prevState,
-      [menuItemWithCategoryId.categoryId]: false // Hide the form after submission
-    }));//note: this is broken
+      [menuItemWithCategoryId.categoryId]: false
+    }));
   };
 
   return (
     <>
       <NavBar />
       <Container style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '100vh' }}>
-        <div style={{ marginTop: '100px', width: '100%' }}>
-          <CategoryNav categories={categories} scrollToCategory={handleScrollToCategory} />
-
+        <div style={{ marginTop: '100px', width: '100%', display: 'flex', justifyContent: 'space-between' }}>
+          <CategoryNav categories={categories} scrollToCategory={handleScrollToCategory} style={{ height: '100px', width: '100px' }} /> 
+          <div style={{ width: '200px' }}> 
+            <AddCategoryForm onCategorySubmit={onCategorySubmit} style={{ height: '100px', width: '100px' }} /> 
+          </div>
+        </div>
+        <div style={{ width: '100%' }}>
           {categories.map((category) => (
             <div key={category._id} id={category.categoryName} style={{ marginBottom: '20px' }}>
               <h2>{category.categoryName}</h2>
@@ -116,19 +111,16 @@ useEffect(()=>{
                       description={item.description}
                       price={item.price}
                       imageUrl={item.foodPicture}
-                    addToCart={addToCart}
+                      addToCart={addToCart}
                     />
                   </Grid>
                 ))}
               </Grid>
-              {/* Toggle button to show/hide add menu item form */}
               <button onClick={() => handleToggleMenuItemForm(category)}>Add Menu Item</button>
-              {/* Render the menu item form if showMenuItemForm is true for this category */}
               {showMenuItemForm[category] && <AddMenuItemForm categoryId={category._id} onSubmit={handleAddMenuItem} />}
             </div>
           ))}
         </div>
-        <AddCategoryForm onCategorySubmit={onCategorySubmit} />
       </Container>
     </>
   );
