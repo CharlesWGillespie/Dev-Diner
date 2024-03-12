@@ -1,29 +1,37 @@
 import React, { useState } from 'react';
 
-const AddMenuItemForm = ({ onSubmit }) => {
+const AddMenuItemForm = ({ onSubmit, categoryId }) => {
   const [menuItem, setMenuItem] = useState({
     foodName: '',
     description: '',
-    price: '',
-    imageUrl: ''
+    price: 0,
+    foodPicture: ''
   });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+
+    const newValue = name === 'price' ? parseFloat(value) : value
     setMenuItem(prevState => ({
       ...prevState,
-      [name]: value
+      [name]: newValue
     }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSubmit(menuItem);
+
+    const menuItemWithCategoryId = {
+      ...menuItem,
+      categoryId: categoryId
+    }
+    onSubmit(menuItemWithCategoryId);
+
     setMenuItem({
       foodName: '',
       description: '',
-      price: '',
-      imageUrl: ''
+      price: 0,
+      foodPicture: ''
     });
   };
 
@@ -42,8 +50,8 @@ const AddMenuItemForm = ({ onSubmit }) => {
         <input type="number" id="price" name="price" value={menuItem.price} onChange={handleChange} style={{ marginLeft: '10px', padding: '5px' }} />
       </div>
       <div style={{ marginBottom: '10px' }}>
-        <label htmlFor="imageUrl" style={{ color: 'white' }}>Image URL:</label>
-        <input type="text" id="imageUrl" name="imageUrl" value={menuItem.imageUrl} onChange={handleChange} style={{ marginLeft: '10px', padding: '5px' }} />
+        <label htmlFor="foodPicture" style={{ color: 'white' }}>Image URL:</label>
+        <input type="text" id="foodPicture" name="foodPicture" value={menuItem.foodPicture} onChange={handleChange} style={{ marginLeft: '10px', padding: '5px' }} />
       </div>
       <button type="submit" style={{ backgroundColor: 'white', color: 'black', padding: '8px 16px', borderRadius: '5px', border: 'none', cursor: 'pointer' }}>Submit</button>
     </form>
