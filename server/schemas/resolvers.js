@@ -14,20 +14,6 @@ const resolvers = {
         }
     },
     Mutation: {
-        updateUser: async (parent, { _id, role, firstName, lastName, email, phoneNumber }) => {
-            const newUserObject = await User.findOneAndUpdate(
-                { _id },
-                {
-                    firstName: firstName,
-                    lastName: lastName,
-                    email: email,
-                    phoneNumber: phoneNumber,
-                    role: role
-                },
-                { new: true }
-            )
-            return { _id: newUserObject._id, role: newUserObject.role }
-        },
         addMenuItem: async (parent, { foodName, categoryId, description, price, foodPicture }) => {
             const newMenuItem = await menuItem.create({
                 foodName: foodName,
@@ -64,6 +50,12 @@ const resolvers = {
                 foodPicture: newMenuItem.foodPicture
             }
         },
+        deleteMenuItem: async (parent, { _id }) => {
+            const menuItemResponse = await menuItem.deleteOne({
+                _id: _id
+            })
+            return { menuItemResponse }
+        },
         addCategory: async (parent, { categoryName }) => {
             const category = await Category.create({ categoryName })
             console.log(category)
@@ -92,6 +84,20 @@ const resolvers = {
             console.log(user)
             const token = signToken(user)
             return { user, token }
+        },
+        updateUser: async (parent, { _id, role, firstName, lastName, email, phoneNumber }) => {
+            const newUserObject = await User.findOneAndUpdate(
+                { _id },
+                {
+                    firstName: firstName,
+                    lastName: lastName,
+                    email: email,
+                    phoneNumber: phoneNumber,
+                    role: role
+                },
+                { new: true }
+            )
+            return { _id: newUserObject._id, role: newUserObject.role }
         },
         login: async (parent, { email, password }) => {
             const user = await User.findOne({ email })
