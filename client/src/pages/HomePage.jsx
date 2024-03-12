@@ -29,11 +29,11 @@ export default function HomePage() {
         <Grid container spacing={2} justifyContent="center" style={{ marginTop: '50px' }}>
           <Grid item xs={12} sm={10} md={6} lg={4}> {/* Adjusted grid size for smaller screens */}
             <h2 style={{fontSize: '35px'}}>Our Story</h2>
-            <p style={{fontSize: '20px'}}>Learn more about how Dev Diner started and our journey to blend technology with food.</p>
+            <p style={{fontSize: '20px'}}>Learn more about how Dev Diner started and our journey.</p>
           </Grid>
           <Grid item xs={12} sm={10} md={6} lg={4}> {/* Adjusted grid size for smaller screens */}
             <h2 style={{fontSize: '35px'}}>Special Offers</h2>
-            <p style={{fontSize: '20px'}}>Check out our latest specials and promotions to enjoy delicious meals at great prices.</p>
+            <p style={{fontSize: '20px'}}>Check out our latest specials to enjoy delicious meals at great prices.</p>
           </Grid>
           <Grid item xs={12} sm={10} md={6} lg={4}> {/* Adjusted grid size for smaller screens */}
             <h2 style={{fontSize: '35px'}}>Contact Us</h2>

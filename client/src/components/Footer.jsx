@@ -7,7 +7,7 @@ export default function Footer() {
       <Container>
       </Container>
       <Container>
-        <Typography variant="h2" align="center" gutterBottom>
+        <Typography sx={{marginTop:'80px'}} variant="h4" align="center" gutterBottom>
           Contact Us
         </Typography>
         <Typography variant="body1" align="center">

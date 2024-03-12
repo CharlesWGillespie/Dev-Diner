@@ -43,10 +43,10 @@ const AddMenuItemForm = ({ onSubmit, categoryId }) => {
       </div>
       <div style={inputContainerStyle}>
         <label htmlFor="description" style={labelStyle}>Description:</label>
-        <textarea id="description" name="description" value={menuItem.description} onChange={handleChange} style={{ ...inputStyle, ...{ height: '100px', resize: 'none' } }} />
+        <textarea id="description" name="description" value={menuItem.description} onChange={handleChange} style={{ ...inputStyle, ...{ height: '100px', minHeight: '20px', resize: 'none' } }} />
       </div>
       <div style={inputContainerStyle}>
-        <label htmlFor="price" style={labelStyle}>Price:</label>
+        <label htmlFor="price" style={labelStyle}>Price of Item:</label>
         <input type="number" id="price" name="price" value={menuItem.price} onChange={handleChange} style={inputStyle} />
       </div>
       <div style={inputContainerStyle}>
@@ -62,23 +62,28 @@ const formStyle = {
   border: '2px solid white',
   padding: '20px',
   backgroundColor: 'rgba(255, 255, 255, 0.2)',
-  borderRadius: '10px'
+  borderRadius: '10px',
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center'
 };
 
 const inputContainerStyle = {
-  marginBottom: '10px'
+  marginBottom: '10px',
+  display: 'flex',
+  alignItems: 'center'
 };
 
 const labelStyle = {
-  color: 'white'
+  color: 'white',
+  marginRight: '10px',
+  width: '150px'
 };
 
 const inputStyle = {
-  marginLeft: '10px',
   padding: '5px',
-  width: 'calc(100% - 50px)',
-  height: '20px'
-   // Adjusted width for text boxes
+  width: '200px',
+  maxHeight: '20px'
 };
 
 const submitButtonStyle = {
