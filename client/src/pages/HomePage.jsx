@@ -17,7 +17,7 @@ export default function HomePage() {
           <Grid item xs={12} sm={6}>
             <div style={{ textAlign: 'center' }}>
               <h1 style={{ color: '#ff1a75' }}>Welcome to Dev Diner</h1>
-              <p style={{ fontSize: '1.2rem' }}>Discover a world of delicious dishes crafted with love and technology.</p>
+              <p style={{ fontSize: '20px' }}>Discover a world of delicious dishes crafted with love and technology.</p>
               <Link to="/menu" style={{ textDecoration: 'none' }}>
                 <Button variant="contained" color="primary">
                   Explore Our Menu
@@ -27,17 +27,17 @@ export default function HomePage() {
           </Grid>
         </Grid>
         <Grid container spacing={2} justifyContent="center" style={{ marginTop: '50px' }}>
-          <Grid item xs={12} sm={4}>
-            <h2>Our Story</h2>
-            <p>Learn more about how Dev Diner started and our journey to blend technology with food.</p>
+          <Grid item xs={12} sm={10} md={6} lg={4}> {/* Adjusted grid size for smaller screens */}
+            <h2 style={{fontSize: '35px'}}>Our Story</h2>
+            <p style={{fontSize: '20px'}}>Learn more about how Dev Diner started and our journey to blend technology with food.</p>
           </Grid>
-          <Grid item xs={12} sm={4}>
-            <h2>Special Offers</h2>
-            <p>Check out our latest specials and promotions to enjoy delicious meals at great prices.</p>
+          <Grid item xs={12} sm={10} md={6} lg={4}> {/* Adjusted grid size for smaller screens */}
+            <h2 style={{fontSize: '35px'}}>Special Offers</h2>
+            <p style={{fontSize: '20px'}}>Check out our latest specials and promotions to enjoy delicious meals at great prices.</p>
           </Grid>
-          <Grid item xs={12} sm={4}>
-            <h2>Contact Us</h2>
-            <p>Have questions or feedback? Contact us today and let us know how we can assist you.</p>
+          <Grid item xs={12} sm={10} md={6} lg={4}> {/* Adjusted grid size for smaller screens */}
+            <h2 style={{fontSize: '35px'}}>Contact Us</h2>
+            <p style={{fontSize: '20px'}}>Have questions or feedback? Contact us today and let us know how we can assist you.</p>
           </Grid>
         </Grid>
       </Container>

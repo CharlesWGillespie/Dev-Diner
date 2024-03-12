@@ -1,6 +1,7 @@
 import React from 'react';
 import NavBar from "../components/Nav";
 import Container from '@mui/material/Container';
+import Footer from '../components/Footer';
 
 export default function CartPage({ cartItems }) {
   console.log("Received cart items:", cartItems);
@@ -16,6 +17,7 @@ export default function CartPage({ cartItems }) {
             <p>${item.price}</p>
           </div>
         ))}
+        <Footer />
       </Container>
     </>
   );
