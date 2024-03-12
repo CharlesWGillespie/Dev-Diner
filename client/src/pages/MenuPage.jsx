@@ -11,12 +11,20 @@ import { useQuery } from '@apollo/client';
 import { useStoreContext } from '../utils/GlobalState';
 import { UPDATE_MENUITEMS, ADD_TO_CART } from '../utils/actions';
 import { QUERY_MENUITEMS, QUERY_CATEGORIES } from '../utils/queries';
-import { ADD_CATEGORY, ADD_MENUITEM } from '../utils/mutations'
+import { ADD_CATEGORY, ADD_MENUITEM, DELETE_CATEGORY } from '../utils/mutations'
 import { useMutation } from '@apollo/client';
 
 export default function MenuPage() {
-  const [showMenuItemForm, setShowMenuItemForm] = useState({});
+
   const [state, dispatch] = useStoreContext()
+
+  const [showMenuItemForm, setShowMenuItemForm] = useState({});
+
+  const categories = state.categories
+  const menuItems = state.menuItems
+
+  const { loading, data: menuItemData } = useQuery(QUERY_MENUITEMS)
+
   const [addCategory] = useMutation(ADD_CATEGORY, {
     refetchQueries: [
       QUERY_CATEGORIES,
@@ -29,8 +37,12 @@ export default function MenuPage() {
       'GetMenuItems'
     ]
   })
-
-  const { loading, data: menuItemData } = useQuery(QUERY_MENUITEMS)
+  const [deleteCategory] = useMutation(DELETE_CATEGORY, {
+    refetchQueries: [
+      QUERY_CATEGORIES,
+      'GetCategories'
+    ],
+  })
 
   useEffect(() => {
     if (menuItemData) {
@@ -41,10 +53,6 @@ export default function MenuPage() {
     }
   }, [menuItemData, loading, dispatch])
 
-  useEffect(() => {
-    console.log(state.cart)
-  }, [state.cart])
-
   const addToCart = (item) => {
     dispatch({
       type: ADD_TO_CART,
@@ -53,7 +61,7 @@ export default function MenuPage() {
   };
 
   const onCategorySubmit = async (category) => {
-    const mutationResponse = await addCategory({ variables: { categoryName: category } })
+    await addCategory({ variables: { categoryName: category } })
   };
 
   const handleToggleMenuItemForm = (category) => {
@@ -63,8 +71,10 @@ export default function MenuPage() {
     }));
   };
 
-  const categories = state.categories
-  const menuItems = state.menuItems
+  const handleDeleteCategory = async(categoryId) => {
+    console.log(categoryId)
+    await deleteCategory({variables: {categoryId}})
+  }
 
   const menuItemsByCategory = menuItems.reduce((acc, item) => {
     if (!acc[item.categoryId]) {
@@ -82,13 +92,12 @@ export default function MenuPage() {
   };
 
   const handleAddMenuItem = async (menuItemWithCategoryId) => {
-    const mutationResponse = await addMenuItem({ variables: menuItemWithCategoryId })
+    await addMenuItem({ variables: menuItemWithCategoryId })
     setShowMenuItemForm(prevState => ({
       ...prevState,
       [menuItemWithCategoryId.categoryId]: false
     }));
   };
-console.log(menuItemsByCategory)
   return (
     <>
       <NavBar />
