@@ -10,7 +10,7 @@ import AddMenuItemForm from '../components/AddMenuItemForm';
 
 import { useQuery } from '@apollo/client';
 import { useStoreContext } from '../utils/GlobalState';
-import { UPDATE_MENUITEMS } from '../utils/actions';
+import { UPDATE_MENUITEMS, ADD_TO_CART } from '../utils/actions';
 import { QUERY_MENUITEMS, QUERY_CATEGORIES } from '../utils/queries';
 import { ADD_CATEGORY, ADD_MENUITEM } from '../utils/mutations'
 import { useMutation } from '@apollo/client';
@@ -44,14 +44,17 @@ export default function MenuPage() {
     }
   }, [menuItemData, loading, dispatch])
 
+useEffect(()=>{
+  console.log(state.cart)
+}, [state.cart])
 
 
-  const [cartItems, setCartItems] = useState([]);
-
-  // const addToCart = (item) => {
-  //   // console.log("Adding item to cart:", item);
-  //   setCartItems([...cartItems, item]);
-  // };
+  const addToCart = (item) => {
+    dispatch({
+      type: ADD_TO_CART,
+      menuItem: item
+    })
+  };
   // console.log("Current cart items:", cartItems);
 
 
@@ -113,7 +116,7 @@ export default function MenuPage() {
                       description={item.description}
                       price={item.price}
                       imageUrl={item.foodPicture}
-                    // addToCart={addToCart}
+                    addToCart={addToCart}
                     />
                   </Grid>
                 ))}
