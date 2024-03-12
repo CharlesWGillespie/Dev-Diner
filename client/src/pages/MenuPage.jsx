@@ -94,9 +94,9 @@ export default function MenuPage() {
       <NavBar />
       <Container style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '100vh' }}>
         <div style={{ marginTop: '100px', width: '100%', display: 'flex', justifyContent: 'space-between' }}>
-          <CategoryNav categories={categories} scrollToCategory={handleScrollToCategory} style={{ height: '100px', width: '100px' }} /> {/* Set height and width */}
-          <div style={{ width: '200px' }}> {/* Adjust the width as needed */}
-            <AddCategoryForm onCategorySubmit={onCategorySubmit} style={{ height: '100px', width: '100px' }} /> {/* Set height and width */}
+          <CategoryNav categories={categories} scrollToCategory={handleScrollToCategory} style={{ height: '100px', width: '100px' }} /> 
+          <div style={{ width: '200px' }}> 
+            <AddCategoryForm onCategorySubmit={onCategorySubmit} style={{ height: '100px', width: '100px' }} /> 
           </div>
         </div>
         <div style={{ width: '100%' }}>

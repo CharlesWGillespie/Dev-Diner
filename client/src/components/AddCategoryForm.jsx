@@ -14,7 +14,7 @@ const AddCategoryForm = ({ onCategorySubmit }) => {
   return (
     <Card sx={{ fontSize: '15px', maxWidth: 200, maxHeight: 200 }}>
       <CardContent>
-        <Typography gutterBottom variant="h5" component="div" sx={{ fontSize: '1rem' }}> {/* Adjust the font size as needed */}
+        <Typography gutterBottom variant="h5" component="div" sx={{ fontSize: '1rem' }}> 
           Add Category
         </Typography>
         <form onSubmit={handleSubmit}>
@@ -27,7 +27,7 @@ const AddCategoryForm = ({ onCategorySubmit }) => {
             required
             fullWidth
             margin="dense"
-            sx={{ fontSize: '15px',  }} // Adjust the font size as needed
+            sx={{ fontSize: '15px',  }}
           />
           <Button
             type="submit"
