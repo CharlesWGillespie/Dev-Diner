@@ -100,26 +100,28 @@ export default function MenuPage() {
           </div>
         </div>
         <div style={{ width: '100%' }}>
-          {categories.map((category) => (
-            <div key={category._id} id={category.categoryName} style={{ marginBottom: '20px' }}>
-              <h2>{category.categoryName}</h2>
-              <Grid container spacing={2}>
-                {menuItemsByCategory[category._id]?.map((item, index) => (
-                  <Grid item xs={6} sm={4} md={3} lg={3} key={index}>
-                    <MenuItemCard
-                      name={item.foodName}
-                      description={item.description}
-                      price={item.price}
-                      imageUrl={item.foodPicture}
-                      addToCart={addToCart}
-                    />
-                  </Grid>
-                ))}
-              </Grid>
-              <button onClick={() => handleToggleMenuItemForm(category)}>Add Menu Item</button>
-              {showMenuItemForm[category] && <AddMenuItemForm categoryId={category._id} onSubmit={handleAddMenuItem} />}
-            </div>
-          ))}
+        {categories.map((category) => (
+          <div key={category._id} id={category.categoryName} style={{ marginBottom: '20px', position: 'relative' }}>
+            <h2>{category.categoryName}</h2>
+            <button style={{ position: 'absolute', top: '5px', right: '5px' }} onClick={() => handleDeleteCategory(category._id)}>Delete Category</button>
+            <Grid container spacing={2}>
+      {menuItemsByCategory[category._id]?.map((item, index) => (
+        <Grid item xs={6} sm={4} md={3} lg={3} key={index}>
+          <MenuItemCard
+            name={item.foodName}
+            description={item.description}
+            price={item.price}
+            imageUrl={item.foodPicture}
+            addToCart={addToCart}
+          />
+        </Grid>
+      ))}
+    </Grid>
+    <button onClick={() => handleToggleMenuItemForm(category)}>Add Menu Item</button>
+    {showMenuItemForm[category] && <AddMenuItemForm categoryId={category._id} onSubmit={handleAddMenuItem} />}
+  </div>
+))}
+
         </div>
       </Container>
     </>
