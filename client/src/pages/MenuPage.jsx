@@ -96,6 +96,7 @@ export default function MenuPage() {
     await addMenuItem({ variables: menuItemWithCategoryId })
     setOpenForms((prevOpenForms) => prevOpenForms.filter((id) => id !== menuItemWithCategoryId.categoryId));
   };
+  
   return (
     <>
       <NavBar />
@@ -108,7 +109,7 @@ export default function MenuPage() {
         </div>
         <div style={{ width: '100%' }}>
           {categories.map((category) => (
-            <div key={category._id} id={category.categoryName} style={{ marginBottom: '20px', position: 'relative' }}>
+            <div key={category._id} id={category.categoryName} style={{ marginBottom: '20px', position: 'relative', height: '400px' }}> 
               <h2>{category.categoryName}</h2>
               <button style={{ position: 'absolute', top: '5px', right: '5px' }} onClick={() => handleDeleteCategory(category._id)}>Delete Category</button>
               <Grid container spacing={2}>
@@ -129,7 +130,6 @@ export default function MenuPage() {
               {openForms.includes(category._id) && <AddMenuItemForm categoryId={category._id} onSubmit={handleAddMenuItem} />}
             </div>
           ))}
-
         </div>
       </Container>
     </>
