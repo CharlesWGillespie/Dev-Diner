@@ -11,7 +11,7 @@ export const QUERY_CATEGORIES = gql`
 `;
 
 export const QUERY_MENUITEMS = gql`
-{
+query GetMenuItems{
   menuItems {
     _id
     categoryId
