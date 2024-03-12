@@ -14,19 +14,36 @@ const resolvers = {
         }
     },
     Mutation: {
-        updateUser: async( parent, {_id, role, firstName, lastName, email, phoneNumber}) => {
+        updateUser: async (parent, { _id, role, firstName, lastName, email, phoneNumber }) => {
             const newUserObject = await User.findOneAndUpdate(
-                {_id},
+                { _id },
                 {
                     firstName: firstName,
-                    lastName: lastName, 
+                    lastName: lastName,
                     email: email,
                     phoneNumber: phoneNumber,
                     role: role
                 },
-                {new: true}
-            ) 
-            return{_id: newUserObject._id, role: newUserObject.role}
+                { new: true }
+            )
+            return { _id: newUserObject._id, role: newUserObject.role }
+        },
+        addMenuItem: async (parent, { foodName, categoryId, description, price, foodPicture }) => {
+            const newMenuItem = await menuItem.create({
+                foodName: foodName,
+                categoryId: categoryId,
+                description: description,
+                price: price,
+                foodPicture: foodPicture
+            })
+            return {
+                _id: newMenuItem._id.toString(),
+                foodName: newMenuItem.foodName,
+                categoryId: newMenuItem.categoryId,
+                description: newMenuItem.description,
+                price: newMenuItem.price,
+                foodPicture: newMenuItem.foodPicture
+            }
         },
         updateMenuItem: async (parent, { _id, foodName, description, price, foodPicture }) => {
             const newMenuItem = await menuItem.findOneAndUpdate(
@@ -47,28 +64,10 @@ const resolvers = {
                 foodPicture: newMenuItem.foodPicture
             }
         },
-        addMenuItem: async (parent, { foodName, categoryId, description, price, foodPicture }) => {
-            const newMenuItem = await menuItem.create({
-                foodName: foodName,
-                categoryId: categoryId,
-                description: description,
-                price: price,
-                foodPicture: foodPicture
-            })
-            return {
-                _id: newMenuItem._id.toString(),
-                foodName: newMenuItem.foodName,
-                categoryId: newMenuItem.categoryId,
-                description: newMenuItem.description,
-                price: newMenuItem.price,
-                foodPicture: newMenuItem.foodPicture
-            }
-        },
-        deleteCategory: async (parent, { categoryId }) => {
-            const category = await Category.deleteOne({
-                _id: categoryId
-            })
-            return { category }
+        addCategory: async (parent, { categoryName }) => {
+            const category = await Category.create({ categoryName })
+            console.log(category)
+            return { _id: category._id.toString(), categoryName: category.categoryName }
         },
         updateCategory: async (parent, { categoryId, categoryName }) => {
             try {
@@ -82,10 +81,11 @@ const resolvers = {
                 console.log(err)
             }
         },
-        addCategory: async (parent, { categoryName }) => {
-            const category = await Category.create({ categoryName })
-            console.log(category)
-            return { _id: category._id.toString(), categoryName: category.categoryName }
+        deleteCategory: async (parent, { categoryId }) => {
+            const category = await Category.deleteOne({
+                _id: categoryId
+            })
+            return { category }
         },
         addUser: async (parent, { firstName, lastName, email, password, phoneNumber }) => {
             const user = await User.create({ firstName, lastName, email, password, phoneNumber })

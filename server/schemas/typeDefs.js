@@ -49,6 +49,7 @@ type Mutation{
     deleteCategory(categoryId: ID!):Category
     addMenuItem(foodName: String!, categoryId: String!, description: String, price: Float, foodPicture: String): menuItem
     updateMenuItem(_id: String!, foodName: String, description: String, price: Float, foodPicture: String): menuItem
+    deleteMenuItem(_id: ID!):menuItem
 
 }
 `
