@@ -12,9 +12,11 @@ import { useQuery } from '@apollo/client';
 import { useStoreContext } from '../utils/GlobalState';
 import { UPDATE_MENUITEMS } from '../utils/actions';
 import { QUERY_MENUITEMS, QUERY_CATEGORIES } from '../utils/queries';
-import { ADD_CATEGORY } from '../utils/mutations'
+import { ADD_CATEGORY, ADD_MENUITEM } from '../utils/mutations'
 import { useMutation } from '@apollo/client';
 export default function MenuPage() {
+
+  const [showMenuItemForm, setShowMenuItemForm] = useState({}); // State to control visibility of menu item form for each category
 
   const [state, dispatch] = useStoreContext()
   const [addCategory] = useMutation(ADD_CATEGORY, {
@@ -23,6 +25,13 @@ export default function MenuPage() {
       'GetCategories' // Query name
     ],
   })
+  const [addMenuItem] = useMutation(ADD_MENUITEM, {
+    refetchQueries: [
+      QUERY_MENUITEMS,
+      'GetMenuItems'
+    ]
+  })
+
   const { loading, data: menuItemData } = useQuery(QUERY_MENUITEMS)
 
   useEffect(() => {
@@ -37,8 +46,6 @@ export default function MenuPage() {
 
 
   const [cartItems, setCartItems] = useState([]);
-  const [showMenuItemForm, setShowMenuItemForm] = useState({}); // State to control visibility of menu item form for each category
-  const [newMenuItems, setNewMenuItems] = useState({}); // State to store new menu items for each category
 
   // const addToCart = (item) => {
   //   // console.log("Adding item to cart:", item);
@@ -51,7 +58,6 @@ export default function MenuPage() {
   const onCategorySubmit = async (category) => {
     const mutationResponse = await addCategory({ variables: { categoryName: category } })
   };
-
   
   const handleToggleMenuItemForm = (category) => {
     setShowMenuItemForm(prevState => ({
@@ -59,7 +65,6 @@ export default function MenuPage() {
       [category]: !prevState[category] // Toggle the visibility of form for a specific category
     }));
   };
-  
   
   const categories = state.categories
   const menuItems = state.menuItems
@@ -79,15 +84,14 @@ export default function MenuPage() {
     }
   };
 
-  const handleAddMenuItem = (menuItem) => {
-    setNewMenuItems(prevState => ({
-      ...prevState,
-      [menuItem.category]: prevState[menuItem.category] ? [...prevState[menuItem.category], menuItem] : [menuItem]
-    }));
-    console.log('New menu item:', menuItem);
+  const handleAddMenuItem = async (menuItemWithCategoryId) => {
+    
+    const mutationResponse = await addMenuItem({variables: menuItemWithCategoryId})
+    console.log('New menu item:', menuItemWithCategoryId);
+    
     setShowMenuItemForm(prevState => ({
       ...prevState,
-      [menuItem.category]: false // Hide the form after submission
+      [menuItemWithCategoryId.categoryId]: false // Hide the form after submission
     }));
   };
 
@@ -117,7 +121,7 @@ export default function MenuPage() {
               {/* Toggle button to show/hide add menu item form */}
               <button onClick={() => handleToggleMenuItemForm(category)}>Add Menu Item</button>
               {/* Render the menu item form if showMenuItemForm is true for this category */}
-              {showMenuItemForm[category] && <AddMenuItemForm category={category} onSubmit={handleAddMenuItem} />}
+              {showMenuItemForm[category] && <AddMenuItemForm categoryId={category._id} onSubmit={handleAddMenuItem} />}
             </div>
           ))}
         </div>

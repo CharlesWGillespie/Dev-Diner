@@ -1,5 +1,18 @@
 import { gql } from '@apollo/client';
 
+export const ADD_MENUITEM = gql`
+mutation AddMenuItem($foodName: String!, $categoryId: String!, $description: String, $price: Float, $foodPicture: String) {
+  addMenuItem(foodName: $foodName, categoryId: $categoryId, description: $description, price: $price, foodPicture: $foodPicture) {
+    _id
+    categoryId
+    description
+    foodPicture
+    foodName
+    price
+  }
+}
+`
+
 export const UPDATE_USER = gql`
   mutation UpdateUser($id: String!, $firstName: String, $lastName: String, $email: String, $phoneNumber: String, $role: [String]) {
   updateUser(_id: $id, firstName: $firstName, lastName: $lastName, email: $email, phoneNumber: $phoneNumber, role: $role) {
