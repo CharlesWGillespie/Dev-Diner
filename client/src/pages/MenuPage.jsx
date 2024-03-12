@@ -18,7 +18,7 @@ export default function MenuPage() {
 
   const [state, dispatch] = useStoreContext()
 
-  const [showMenuItemForm, setShowMenuItemForm] = useState({});
+  const [openForms, setOpenForms] = useState([]);
 
   const categories = state.categories
   const menuItems = state.menuItems
@@ -65,14 +65,15 @@ export default function MenuPage() {
   };
 
   const handleToggleMenuItemForm = (category) => {
-    setShowMenuItemForm(prevState => ({
-      ...prevState,
-      [category]: !prevState[category]
-    }));
+    // Check if the category ID is in the array, and toggle accordingly
+    if (openForms.includes(category._id)) {
+      setOpenForms((prevOpenForms) => prevOpenForms.filter((id) => id !== category._id));
+    } else {
+      setOpenForms((prevOpenForms) => [...prevOpenForms, category._id]);
+    }
   };
 
   const handleDeleteCategory = async(categoryId) => {
-    console.log(categoryId)
     await deleteCategory({variables: {categoryId}})
   }
 
@@ -93,10 +94,7 @@ export default function MenuPage() {
 
   const handleAddMenuItem = async (menuItemWithCategoryId) => {
     await addMenuItem({ variables: menuItemWithCategoryId })
-    setShowMenuItemForm(prevState => ({
-      ...prevState,
-      [menuItemWithCategoryId.categoryId]: false
-    }));
+    setOpenForms((prevOpenForms) => prevOpenForms.filter((id) => id !== menuItemWithCategoryId.categoryId));
   };
   
   return (
@@ -129,7 +127,7 @@ export default function MenuPage() {
                 ))}
               </Grid>
               <button onClick={() => handleToggleMenuItemForm(category)}>Add Menu Item</button>
-              {showMenuItemForm[category] && <AddMenuItemForm categoryId={category._id} onSubmit={handleAddMenuItem} />}
+              {openForms.includes(category._id) && <AddMenuItemForm categoryId={category._id} onSubmit={handleAddMenuItem} />}
             </div>
           ))}
         </div>
