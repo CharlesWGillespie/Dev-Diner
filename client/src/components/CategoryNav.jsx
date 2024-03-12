@@ -27,8 +27,8 @@ const { loading, data: categoryData } = useQuery(QUERY_CATEGORIES)
   return (
     <div style={{ display: 'flex', marginBottom: '10px' }}>
       {categories.map((category) => (
-        <button key={category} style={{ marginRight: '10px' }} onClick={() => scrollToCategory(category)}>
-          {category}
+        <button key={category._id} style={{ marginRight: '10px' }} onClick={() => scrollToCategory(category.categoryName)}>
+          {category.categoryName}
         </button>
       ))}
     </div>
