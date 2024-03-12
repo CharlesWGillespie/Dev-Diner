@@ -1,7 +1,12 @@
 import { gql } from '@apollo/client';
 
-// export const DELETE_MENUITEM = gql`
-// `
+export const DELETE_MENUITEM = gql`
+mutation deleteMenuItem($id: String!) {
+  deleteMenuItem(_id: $id) {
+    _id
+  }
+}
+`
 
 export const ADD_MENUITEM = gql`
 mutation AddMenuItem($foodName: String!, $categoryId: String!, $description: String, $price: Float, $foodPicture: String) {
