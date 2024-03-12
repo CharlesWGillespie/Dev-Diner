@@ -46,7 +46,7 @@ type Mutation{
     login(email: String!, password: String!):Auth
     addCategory(categoryName: String!): Category
     updateCategory(categoryId: ID!, categoryName: String):Category
-    deleteCategory(categoryId: ID!):Category
+    deleteCategory(categoryId: String!):Category
     addMenuItem(foodName: String!, categoryId: String!, description: String, price: Float, foodPicture: String): menuItem
     updateMenuItem(_id: String!, foodName: String, description: String, price: Float, foodPicture: String): menuItem
     deleteMenuItem(_id: String!):menuItem
