@@ -109,7 +109,7 @@ export default function MenuPage() {
         </div>
         <div style={{ width: '100%' }}>
           {categories.map((category) => (
-            <div key={category._id} id={category.categoryName} style={{ marginBottom: '20px', position: 'relative', height: '400px' }}> 
+            <div key={category._id} id={category.categoryName} style={{ marginBottom: '20px', position: 'relative' }}> 
               <h2>{category.categoryName}</h2>
               <button style={{ position: 'absolute', top: '5px', right: '5px' }} onClick={() => handleDeleteCategory(category._id)}>Delete Category</button>
               <Grid container spacing={2}>
